@@ -1,0 +1,13 @@
+{
+  "itemGroup.snonecraft": "Example Mod Tab",
+  "block.snonecraft.example_block": "Example Block",
+  "item.snonecraft.example_item": "Example Item",
+
+  "snonecraft.configuration.title": "Snonecraft Configs",
+  "snonecraft.configuration.section.snonecraft.common.toml": "Snonecraft Configs",
+  "snonecraft.configuration.section.snonecraft.common.toml.title": "Snonecraft Configs",
+  "snonecraft.configuration.items": "Item List",
+  "snonecraft.configuration.logDirtBlock": "Log Dirt Block",
+  "snonecraft.configuration.magicNumberIntroduction": "Magic Number Text",
+  "snonecraft.configuration.magicNumber": "Magic Number"
+}
