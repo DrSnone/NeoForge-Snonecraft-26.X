@@ -1,5 +1,6 @@
 package de.drsnone.snonecraft;
 
+import de.drsnone.snonecraft.block.ModBlocks;
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -28,4 +29,6 @@ public class SnonecraftClient {
         Snonecraft.LOGGER.info("HELLO FROM CLIENT SETUP");
         Snonecraft.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
     }
+
+
 }

@@ -1,5 +1,9 @@
 package de.drsnone.snonecraft;
 
+import de.drsnone.snonecraft.block.ModBlocks;
+import de.drsnone.snonecraft.creativetab.ModCreativeModeTabs;
+import de.drsnone.snonecraft.item.ModItems;
+import de.drsnone.snonecraft.loot.ModLootModifiers;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -43,7 +47,21 @@ public class Snonecraft {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
+
+
+
+
+
+
         NeoForge.EVENT_BUS.register(this);
+
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
@@ -56,6 +74,10 @@ public class Snonecraft {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.SNONIUM_INGOT);
+            event.accept(ModItems.RAW_SNONIUM);
+        }
 
     }
 
