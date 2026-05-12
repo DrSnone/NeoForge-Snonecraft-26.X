@@ -36,9 +36,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Snonecraft.MOD_ID)
 public class Snonecraft {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "snonecraft";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.

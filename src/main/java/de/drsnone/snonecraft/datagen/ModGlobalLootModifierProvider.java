@@ -18,8 +18,8 @@ import net.neoforged.neoforge.common.loot.LootTableIdCondition;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ModGlobalLootModifiersProvider extends GlobalLootModifierProvider {
-    public ModGlobalLootModifiersProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
+    public ModGlobalLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         super(output, registries, Snonecraft.MOD_ID);
     }
 
