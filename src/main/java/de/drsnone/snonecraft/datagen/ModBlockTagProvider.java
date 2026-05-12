@@ -133,6 +133,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.WALLS).add(ModBlocks.BLACK_MARBLE_FANCY_WALL.get());
 
         tag(BlockTags.WALLS).add(ModBlocks.SANDSTONE_BRICK_WALL.get());
+        tag(BlockTags.WALLS).add(ModBlocks.HEMP_WALL.get());
 
         this.tag(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.VAMPIRE_LOG.get())

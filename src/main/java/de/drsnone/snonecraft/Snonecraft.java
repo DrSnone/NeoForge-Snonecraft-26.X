@@ -4,6 +4,7 @@ import de.drsnone.snonecraft.block.ModBlocks;
 import de.drsnone.snonecraft.creativetab.ModCreativeModeTabs;
 import de.drsnone.snonecraft.item.ModItems;
 import de.drsnone.snonecraft.loot.ModLootModifiers;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -67,6 +68,11 @@ public class Snonecraft {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.VAMPIRE_SAPLING.getId(), ModBlocks.POTTED_VAMPIRE_SAPLING);
+
+
+        });
 
     }
 

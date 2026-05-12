@@ -138,6 +138,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.HEMP_BLOCK.get());
         dropSelf(ModBlocks.HEMP_STAIRS.get());
         add(ModBlocks.HEMP_SLAB.get(), this::createSlabItemTable);
+        dropSelf(ModBlocks.HEMP_WALL.get());
 
         dropSelf(ModBlocks.HEMP_PRESSURE_PLATE.get());
         dropSelf(ModBlocks.HEMP_BUTTON.get());
@@ -146,7 +147,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.HEMP_FENCE_GATE.get());
 
         dropSelf(ModBlocks.HEMP_TRAPDOOR.get());
-        add(ModBlocks.HEMP_DOOR.get(), this::createSlabItemTable);
+        add(ModBlocks.HEMP_DOOR.get(), this::createDoorTable);
 
 
         add(ModBlocks.SNONIUM_ORE.get(), block -> createOreDrop(block, ModItems.RAW_SNONIUM.get()));
@@ -198,6 +199,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.VAMPIRE_PLANKS.get());
         dropSelf(ModBlocks.VAMPIRE_SAPLING.get());
 
+
+        add(ModBlocks.POTTED_VAMPIRE_SAPLING.get(), createPotFlowerItemTable(ModBlocks.POTTED_VAMPIRE_SAPLING.get()));
         add(ModBlocks.VAMPIRE_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.VAMPIRE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
 

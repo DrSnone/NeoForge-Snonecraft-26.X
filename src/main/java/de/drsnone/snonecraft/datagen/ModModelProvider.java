@@ -52,10 +52,8 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.HEMP.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.HEMP_CLUMP.get(), ModelTemplates.FLAT_ITEM);
 
-        itemModels.generateFlatItem(ModItems.PICKLE_SEEDS.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(ModItems.ICE_LETTUCE_SEEDS.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(ModItems.MEAT_TOMATO_SEEDS.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(ModItems.RED_ONION_SEEDS.get(), ModelTemplates.FLAT_ITEM);
+
+
 
         itemModels.generateFlatItem(ModItems.FETA_CHEESE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.FLATBREAD.get(), ModelTemplates.FLAT_ITEM);
@@ -291,6 +289,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.family(ModBlocks.HEMP_BLOCK.get())
                 .stairs(ModBlocks.HEMP_STAIRS.get())
                 .slab(ModBlocks.HEMP_SLAB.get())
+                .wall(ModBlocks.HEMP_WALL.get())
                 .pressurePlate(ModBlocks.HEMP_PRESSURE_PLATE.get())
                 .button(ModBlocks.HEMP_BUTTON.get())
                 .fence(ModBlocks.HEMP_FENCE.get())

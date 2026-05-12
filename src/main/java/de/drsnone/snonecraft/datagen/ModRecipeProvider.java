@@ -3,6 +3,7 @@ package de.drsnone.snonecraft.datagen;
 import de.drsnone.snonecraft.Snonecraft;
 import de.drsnone.snonecraft.block.ModBlocks;
 import de.drsnone.snonecraft.item.ModItems;
+import de.drsnone.snonecraft.tag.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -985,6 +986,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         //VAMPIRE RECIPES
+        woodFromLogs(ModBlocks.VAMPIRE_WOOD, ModBlocks.VAMPIRE_LOG);
+        woodFromLogs(ModBlocks.STRIPPED_VAMPIRE_WOOD, ModBlocks.STRIPPED_VAMPIRE_LOG);
+        planksFromLogs(ModBlocks.VAMPIRE_PLANKS, ModTags.Items.VAMPIRE_LOGS, 4);
+
         shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.VAMPIRE_PLANKS, 4)
                 .requires(ModBlocks.VAMPIRE_LOG)
                 .group("planks")

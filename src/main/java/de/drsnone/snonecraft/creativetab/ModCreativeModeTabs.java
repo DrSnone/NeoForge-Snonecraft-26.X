@@ -259,6 +259,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.STRIPPED_VAMPIRE_WOOD);
                         output.accept(ModBlocks.VAMPIRE_SAPLING);
                         output.accept(ModBlocks.VAMPIRE_PLANKS);
+                        output.accept(ModBlocks.VAMPIRE_LEAVES);
+
                         output.accept(ModBlocks.VAMPIRE_STAIRS);
                         output.accept(ModBlocks.VAMPIRE_SLAB);
                         output.accept(ModBlocks.VAMPIRE_BUTTON);
