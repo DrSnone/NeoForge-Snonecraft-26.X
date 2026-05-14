@@ -990,11 +990,7 @@ public class ModRecipeProvider extends RecipeProvider {
         woodFromLogs(ModBlocks.STRIPPED_VAMPIRE_WOOD, ModBlocks.STRIPPED_VAMPIRE_LOG);
         planksFromLogs(ModBlocks.VAMPIRE_PLANKS, ModTags.Items.VAMPIRE_LOGS, 4);
 
-        shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.VAMPIRE_PLANKS, 4)
-                .requires(ModBlocks.VAMPIRE_LOG)
-                .group("planks")
-                .unlockedBy("has_log", has(ModBlocks.VAMPIRE_LOG))
-                .save(output);
+
 
         stairBuilder(ModBlocks.VAMPIRE_STAIRS.get(), Ingredient.of(ModBlocks.VAMPIRE_PLANKS.get())).group("vampire_planks")
                 .unlockedBy("has_vampire_planks", has(ModBlocks.VAMPIRE_PLANKS.get()))

@@ -101,6 +101,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.HEMP);
                         output.accept(ModItems.HEMP_CLUMP);
+                        output.accept(ModItems.HEMP_SEEDS);
                         output.accept(ModItems.BAT_WING);
                         output.accept(ModItems.BAT_LEATHER);
 
@@ -143,13 +144,17 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.DIOPSID_BLOCK);
                         output.accept(ModBlocks.SAPPHIRE_BLOCK);
                         output.accept(ModBlocks.MARBERITH_BLOCK);
+
                         output.accept(ModBlocks.AMBER_BLOCK);
                         output.accept(ModBlocks.AMBER_BLOCK_STAIRS);
                         output.accept(ModBlocks.AMBER_BLOCK_SLAB);
+
                         output.accept(ModBlocks.AMBER_BRICK);
                         output.accept(ModBlocks.AMBER_BRICK_STAIRS);
                         output.accept(ModBlocks.AMBER_BRICK_SLAB);
+
                         output.accept(ModBlocks.SMALL_STONE_BRICKS);
+
                         output.accept(ModBlocks.SNONIUM_BRICK);
                         output.accept(ModBlocks.SNONIUM_BRICK_STAIRS);
                         output.accept(ModBlocks.SNONIUM_BRICK_SLAB);

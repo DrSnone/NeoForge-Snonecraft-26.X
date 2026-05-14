@@ -16,8 +16,10 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
+import net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.BendingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
@@ -42,59 +44,60 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_BROWN_MARBLE_KEY = registerKey("brown_marble");
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_BLACK_MARBLE_KEY = registerKey("black_marble");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> VAMPIRE_KEY = registerKey("vampire");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> VAMPIRE_KEY = registerKey("vampire_key");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-        RuleTest stoneReplaceable = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
-        RuleTest deepslateReplaceables = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
-        RuleTest netherrackReplaceables = new BlockMatchTest(Blocks.NETHERRACK);
+        List<OreConfiguration.TargetBlockState> overworldSnoniumOres = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.SNONIUM_ORE.get().defaultBlockState()),
+                OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_SNONIUM_ORE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldSnoniumOres = List.of(OreConfiguration.target(stoneReplaceable,
-                        ModBlocks.SNONIUM_ORE.get().defaultBlockState()),
-                OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_SNONIUM_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> overworldDiopsidOres = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.DIOPSID_ORE.get().defaultBlockState()),
+                OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_DIOPSID_ORE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldDiopsidOres = List.of(OreConfiguration.target(stoneReplaceable,
-                        ModBlocks.DIOPSID_ORE.get().defaultBlockState()),
-                OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_DIOPSID_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> overworldRubyOres = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.RUBY_ORE.get().defaultBlockState()),
+                OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_RUBY_ORE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldRubyOres = List.of(OreConfiguration.target(stoneReplaceable,
-                        ModBlocks.RUBY_ORE.get().defaultBlockState()),
-                OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_RUBY_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> overworldSapphireOres = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.SAPPHIRE_ORE.get().defaultBlockState()),
+                OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldSapphireOres = List.of(OreConfiguration.target(stoneReplaceable,
-                        ModBlocks.SAPPHIRE_ORE.get().defaultBlockState()),
-                OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> overworldAmberOres = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.AMBER_ORE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldAmberOres = List.of(OreConfiguration.target(stoneReplaceable,
-                ModBlocks.AMBER_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> overworldMarberithOres = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.MARBERITH_ORE.get().defaultBlockState()),
+                OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_MARBERITH_ORE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldMarberithOres = List.of(OreConfiguration.target(stoneReplaceable,
-                        ModBlocks.MARBERITH_ORE.get().defaultBlockState()),
-                OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_MARBERITH_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> overworldWhiteMarble = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.WHITE_MARBLE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldWhiteMarble = List.of(OreConfiguration.target(stoneReplaceable,
-                ModBlocks.WHITE_MARBLE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> overworldGreenMarble = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.GREEN_MARBLE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldGreenMarble = List.of(OreConfiguration.target(stoneReplaceable,
-                ModBlocks.GREEN_MARBLE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> overworldBrownMarble = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.BROWN_MARBLE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldBrownMarble = List.of(OreConfiguration.target(stoneReplaceable,
-                ModBlocks.BROWN_MARBLE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> overworldBlackMarble = List.of(
+                OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.BLACK_MARBLE.get().defaultBlockState()));
 
-        List<OreConfiguration.TargetBlockState> overworldBlackMarble = List.of(OreConfiguration.target(stoneReplaceable,
-                ModBlocks.BLACK_MARBLE.get().defaultBlockState()));
+
+
 
         register(context, OVERWORLD_SNONIUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldSnoniumOres, 9));
-        register(context, NETHER_SNONIUM_ORE_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
-                ModBlocks.NETHER_SNONIUM_ORE.get().defaultBlockState(), 9));
+        register(context, NETHER_SNONIUM_ORE_KEY, Feature.ORE, new OreConfiguration(
+                new BlockMatchTest(Blocks.NETHERRACK), ModBlocks.NETHER_SNONIUM_ORE.get().defaultBlockState(), 12));
+
         register(context, OVERWORLD_DIOPSID_ORE_KEY, Feature.ORE, new OreConfiguration(overworldDiopsidOres, 9));
         register(context, OVERWORLD_RUBY_ORE_KEY, Feature.ORE, new OreConfiguration(overworldRubyOres, 9));
         register(context, OVERWORLD_SAPPHIRE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldSapphireOres, 9));
         register(context, OVERWORLD_AMBER_ORE_KEY, Feature.ORE, new OreConfiguration(overworldAmberOres, 9));
 
         register(context, OVERWORLD_MARBERITH_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMarberithOres, 9));
-        register(context, NETHER_MARBERITH_ORE_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
-                ModBlocks.NETHER_MARBERITH_ORE.get().defaultBlockState(), 9));
+        register(context, NETHER_MARBERITH_ORE_KEY, Feature.ORE, new OreConfiguration(
+                new BlockMatchTest(Blocks.NETHERRACK), ModBlocks.NETHER_MARBERITH_ORE.get().defaultBlockState(), 12));
+
 
         register(context, OVERWORLD_WHITE_MARBLE_KEY, Feature.ORE, new OreConfiguration(overworldWhiteMarble, 48));
         register(context, OVERWORLD_GREEN_MARBLE_KEY, Feature.ORE, new OreConfiguration(overworldGreenMarble, 24));
@@ -103,10 +106,10 @@ public class ModConfiguredFeatures {
 
         register(context, VAMPIRE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.VAMPIRE_LOG.get()),
-                new StraightTrunkPlacer(3, 2, 1),
+                new BendingTrunkPlacer(3, 3, 5, 3, ConstantInt.of(1)),
 
                 BlockStateProvider.simple(ModBlocks.VAMPIRE_LEAVES.get()),
-                new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(2), 3),
+                new AcaciaFoliagePlacer(ConstantInt.of(2), ConstantInt.of(2)),
 
                 new TwoLayersFeatureSize(1, 0, 2)).build());
 

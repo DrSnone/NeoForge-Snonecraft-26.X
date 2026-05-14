@@ -98,7 +98,7 @@ public class ModBiomeModifiers {
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(ADD_TREE_VAMPIRE, new BiomeModifiers.AddFeaturesBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.BIRCH_FOREST)),
+                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.VAMPIRE_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
     }

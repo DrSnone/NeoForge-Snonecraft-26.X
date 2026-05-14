@@ -123,10 +123,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.BLACK_MARBLE_FANCY_SLAB.get(), this::createSlabItemTable);
         dropSelf(ModBlocks.BLACK_MARBLE_FANCY_WALL.get());
 
-        dropSelf(ModBlocks.WHITE_MARBLE.get());
-        dropSelf(ModBlocks.WHITE_MARBLE_STAIRS.get());
-        add(ModBlocks.WHITE_MARBLE_SLAB.get(), this::createSlabItemTable);
-        dropSelf(ModBlocks.WHITE_MARBLE_WALL.get());
 
         dropSelf(ModBlocks.SANDSTONE_BRICK.get());
         dropSelf(ModBlocks.SANDSTONE_BRICK_STAIRS.get());
@@ -188,7 +184,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         add(ModBlocks.HEMP_CROP.get(), createCropDrops(ModBlocks.HEMP_CROP.get(), ModItems.HEMP.get(),
                 ModItems.HEMP_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.HEMP_CROP.get())
-                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 5))));
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 7))));
 
 
         dropSelf(ModBlocks.VAMPIRE_LOG.get());
@@ -200,7 +196,7 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.VAMPIRE_SAPLING.get());
 
 
-        add(ModBlocks.POTTED_VAMPIRE_SAPLING.get(), createPotFlowerItemTable(ModBlocks.POTTED_VAMPIRE_SAPLING.get()));
+        add(ModBlocks.POTTED_VAMPIRE_SAPLING.get(), createPotFlowerItemTable(ModBlocks.VAMPIRE_SAPLING.get()));
         add(ModBlocks.VAMPIRE_LEAVES.get(), block -> createLeavesDrops(block, ModBlocks.VAMPIRE_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
 
 
