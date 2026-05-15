@@ -940,6 +940,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_hemp_block", has(ModBlocks.HEMP_BLOCK.get()))
                 .save(output);
 
+
+
         stairBuilder(ModBlocks.HEMP_STAIRS.get(), Ingredient.of(ModBlocks.HEMP_BLOCK.get())).group("hemp_block")
                 .unlockedBy("has_hemp_block", has(ModBlocks.HEMP_BLOCK.get()))
                 .save(output);
