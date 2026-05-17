@@ -80,13 +80,6 @@
   "item.snonecraft.sapphire_hoe": "Saphir Hacke",
   "item.snonecraft.sapphire_hammer": "Saphir Hammer",
 
-  "item.snonecraft.copper_sword": "Kupfer Schwert",
-  "item.snonecraft.copper_pickaxe": "Kupfer Pickaxt",
-  "item.snonecraft.copper_axe": "Kupfer Axt",
-  "item.snonecraft.copper_shovel": "Kupfer Schaufel",
-  "item.snonecraft.copper_hoe": "Kupfer Hacke",
-  "item.snonecraft.copper_hammer": "Kupfer Hammer",
-
   "item.snonecraft.marberith_helmet": "Marberith Helm",
   "item.snonecraft.marberith_chestplate": "Marberith Brustplatte",
   "item.snonecraft.marberith_leggings": "Marberith Hose",
@@ -107,16 +100,13 @@
   "item.snonecraft.sapphire_leggings": "Saphir Hose",
   "item.snonecraft.sapphire_boots": "Saphir Stiefel",
 
-  "item.snonecraft.copper_helmet": "Kupfer Helm",
-  "item.snonecraft.copper_chestplate": "Kupfer Brustplatte",
-  "item.snonecraft.copper_leggings": "Kupfer Hose",
-  "item.snonecraft.copper_boots": "Kupfer Stiefel",
-
   "item.snonecraft.bat_helmet": "Fledermaus Helm",
   "item.snonecraft.bat_chestplate": "Fledermaus Brustplatte",
   "item.snonecraft.bat_leggings": "Fledermaus Hose",
   "item.snonecraft.bat_boots": "Fledermaus Stiefel",
 
+  "item.snonecraft.vampire_boat": "Vampir Boot",
+  "item.snonecraft.vampire_chest_boat": "Vampir Kisten Boot",
 
   "block.snonecraft.snonium_block": "Snonium Block",
   "block.snonecraft.snonium_brick": "Snonium Ziegel",
@@ -260,8 +250,10 @@
   "block.snonecraft.vampire_door": "Vampirholz Tür",
   "block.snonecraft.vampire_trapdoor": "Vampirholz Falltür",
 
+  "entity.snonecraft.vampire_chest_boat": "Vampir Boot",
 
 
-  "itemGroup.snonecraft.snonecraft_items_tab": "Snonecraft Artikel",
-  "itemGroup.snonecraft.snonecraft_blocks_tab": "Snonecraft Blöcke"
+
+  "creativetab.snonecraft.snonecraft_items_tab": "Snonecraft Artikel",
+  "creativetab.snonecraft.snonecraft_blocks_tab": "Snonecraft Blöcke"
 }

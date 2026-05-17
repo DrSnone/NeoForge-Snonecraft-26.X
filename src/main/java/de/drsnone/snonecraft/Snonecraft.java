@@ -2,6 +2,7 @@ package de.drsnone.snonecraft;
 
 import de.drsnone.snonecraft.block.ModBlocks;
 import de.drsnone.snonecraft.creativetab.ModCreativeModeTabs;
+import de.drsnone.snonecraft.entity.ModEntities;
 import de.drsnone.snonecraft.item.ModItems;
 import de.drsnone.snonecraft.loot.ModLootModifiers;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -52,6 +53,8 @@ public class Snonecraft {
         ModBlocks.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
+
+        ModEntities.register(modEventBus);
 
 
 

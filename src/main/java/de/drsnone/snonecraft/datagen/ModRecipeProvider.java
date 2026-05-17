@@ -7,6 +7,7 @@ import de.drsnone.snonecraft.tag.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
@@ -1022,6 +1023,25 @@ public class ModRecipeProvider extends RecipeProvider {
                 .group("vampire")
                 .unlockedBy("has_vampire_planks", has(ModBlocks.VAMPIRE_PLANKS.get()))
                 .save(output);
+
+        shaped(RecipeCategory.TRANSPORTATION, ModItems.VAMPIRE_BOAT.get())
+                .group("boat")
+                .pattern("# #")
+                .pattern("###")
+                .define('#', ModBlocks.VAMPIRE_PLANKS.get())
+                .unlockedBy("in_water", insideOf(Blocks.WATER))
+                .save(output);
+
+
+
+        shapeless(RecipeCategory.TRANSPORTATION, ModItems.VAMPIRE_CHEST_BOAT.get())
+                   .requires(Blocks.CHEST)
+                   .requires(ModItems.VAMPIRE_BOAT.get())
+                   .group("chest_boat")
+                   .unlockedBy("has_boat", this.has(ItemTags.BOATS))
+                   .save(output);
+
+
 
 
     }

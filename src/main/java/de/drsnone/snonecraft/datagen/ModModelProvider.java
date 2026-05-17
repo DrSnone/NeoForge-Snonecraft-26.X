@@ -136,6 +136,9 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateTrimmableItem(ModItems.BAT_LEGGINGS.get(), ModArmorMaterials.BAT_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
         itemModels.generateTrimmableItem(ModItems.BAT_BOOTS.get(), ModArmorMaterials.BAT_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
+        itemModels.generateFlatItem(ModItems.VAMPIRE_BOAT.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.VAMPIRE_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
+
 
 
 

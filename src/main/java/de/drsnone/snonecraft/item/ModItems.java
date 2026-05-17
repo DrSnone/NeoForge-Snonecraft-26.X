@@ -2,6 +2,7 @@ package de.drsnone.snonecraft.item;
 
 import de.drsnone.snonecraft.Snonecraft;
 import de.drsnone.snonecraft.block.ModBlocks;
+import de.drsnone.snonecraft.entity.ModEntities;
 import de.drsnone.snonecraft.food.ModFoodProperties;
 import de.drsnone.snonecraft.item.custom.HammerItem;
 import net.minecraft.world.item.*;
@@ -236,6 +237,11 @@ public class ModItems {
             properties -> new BlockItem(ModBlocks.RED_ONION_CROP.get(), properties.useItemDescriptionPrefix()));
     public static final DeferredItem<Item> HEMP_SEEDS = ITEMS.registerItem("hemp_seeds",
             properties -> new BlockItem(ModBlocks.HEMP_CROP.get(), properties.useItemDescriptionPrefix()));
+
+    public static final DeferredItem<Item> VAMPIRE_BOAT = ITEMS.registerItem("vampire_boat",
+            properties -> new BoatItem(ModEntities.VAMPIRE_BOAT.get(), properties.stacksTo(1)));
+    public static final DeferredItem<Item> VAMPIRE_CHEST_BOAT = ITEMS.registerItem("vampire_chest_boat",
+            properties -> new BoatItem(ModEntities.VAMPIRE_CHEST_BOAT.get(), properties.stacksTo(1)));
 
 
 

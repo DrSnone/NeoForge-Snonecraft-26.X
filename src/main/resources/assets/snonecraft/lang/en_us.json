@@ -106,6 +106,9 @@
   "item.snonecraft.bat_leggings": "Bat Leggings",
   "item.snonecraft.bat_boots": "Bat Boots",
 
+  "item.snonecraft.vampire_boat": "Vampire Boat",
+  "item.snonecraft.vampire_chest_boat": "Vampire Chest Boat",
+
 
   "block.snonecraft.snonium_block": "Snonium Block",
   "block.snonecraft.snonium_brick": "Snonium Brick",
@@ -251,8 +254,10 @@
   "block.snonecraft.vampire_door": "Vampire Door",
   "block.snonecraft.vampire_trapdoor": "Vampire Trapdoor",
 
+  "entity.snonecraft.vampire_chest_boat": "Vampire Boat",
 
 
-  "itemGroup.snonecraft.snonecraft_items_tab": "Snonecraft Items",
-  "itemGroup.snonecraft.snonecraft_blocks_tab": "Snonecraft Blocks"
+
+  "creativetab.snonecraft.snonecraft_items_tab": "Snonecraft Items",
+  "creativetab.snonecraft.snonecraft_blocks_tab": "Snonecraft Blocks"
 }

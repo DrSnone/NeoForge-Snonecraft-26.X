@@ -1,13 +1,19 @@
 package de.drsnone.snonecraft;
 
 import de.drsnone.snonecraft.block.ModBlocks;
+import de.drsnone.snonecraft.entity.ModEntities;
+import de.drsnone.snonecraft.entity.client.ModModelLayerLocations;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.object.boat.BoatModel;
+import net.minecraft.client.renderer.entity.BoatRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
@@ -25,9 +31,17 @@ public class SnonecraftClient {
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
-        // Some client setup code
-        Snonecraft.LOGGER.info("HELLO FROM CLIENT SETUP");
-        Snonecraft.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        EntityRenderers.register(ModEntities.VAMPIRE_BOAT.get(), context -> new BoatRenderer(context, ModModelLayerLocations.VAMPIRE_BOAT));
+        EntityRenderers.register(ModEntities.VAMPIRE_CHEST_BOAT.get(), context -> new BoatRenderer(context, ModModelLayerLocations.VAMPIRE_CHEST_BOAT));
+
+    }
+
+    @SubscribeEvent
+    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+
+
+        event.registerLayerDefinition(ModModelLayerLocations.VAMPIRE_BOAT, BoatModel::createBoatModel);
+        event.registerLayerDefinition(ModModelLayerLocations.VAMPIRE_CHEST_BOAT, BoatModel::createChestBoatModel);
     }
 
 

@@ -128,6 +128,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GRILLED_BAT_PATTY);
                         output.accept(ModItems.BAT_BURGER);
 
+                        output.accept(ModItems.VAMPIRE_BOAT);
+                        output.accept(ModItems.VAMPIRE_CHEST_BOAT);
+
 
 
 
