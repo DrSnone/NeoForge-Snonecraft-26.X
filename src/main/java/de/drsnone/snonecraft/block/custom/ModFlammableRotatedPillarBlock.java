@@ -13,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class ModFlammableRotatedPillarBlock extends RotatedPillarBlock {
     public ModFlammableRotatedPillarBlock(Properties properties) {
+
         super(properties);
     }
 

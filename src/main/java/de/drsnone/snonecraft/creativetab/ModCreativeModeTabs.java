@@ -7,6 +7,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -127,9 +128,16 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.RAW_BAT_PATTY);
                         output.accept(ModItems.GRILLED_BAT_PATTY);
                         output.accept(ModItems.BAT_BURGER);
+                        output.accept(ModItems.VAMPIRE_PUMPKIN_BREAD);
+                        output.accept(ModItems.VAMPIRE_PUMPKIN_CHEESECAKE);
+                        output.accept(ModItems.VAMPIRE_PUMPKIN_MUFFIN);
+                        output.accept(ModItems.VAMPIRE_PUMPKIN_SOUP);
+                        output.accept(ModItems.VAMPIRE_PUMPKIN_SEEDS);
 
                         output.accept(ModItems.VAMPIRE_BOAT);
                         output.accept(ModItems.VAMPIRE_CHEST_BOAT);
+
+
 
 
 
@@ -277,6 +285,23 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.VAMPIRE_PRESSURE_PLATE);
                         output.accept(ModBlocks.VAMPIRE_DOOR);
                         output.accept(ModBlocks.VAMPIRE_TRAPDOOR);
+
+                        output.accept(ModBlocks.VAMPIRE_PUMPKIN.get());
+                        output.accept(ModBlocks.CARVED_VAMPIRE_PUMPKIN.get());
+
+                        for (DyeColor color : DyeColor.values()) {
+                            output.accept(ModBlocks.RP_LAMPS.get(color).get());
+                        }
+
+                        for (DyeColor color : DyeColor.values()) {
+                            output.accept(ModBlocks.INVERTED_RP_LAMPS.get(color).get());
+                        }
+
+                        
+
+
+
+
 
 
 

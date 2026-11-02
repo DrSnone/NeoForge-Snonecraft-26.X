@@ -78,7 +78,7 @@ public class ModPlacedFeatures {
                         HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(80))));
 
         register(context, VAMPIRE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.VAMPIRE_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.1f, 1),
                         ModBlocks.VAMPIRE_SAPLING.get()));
 
     }

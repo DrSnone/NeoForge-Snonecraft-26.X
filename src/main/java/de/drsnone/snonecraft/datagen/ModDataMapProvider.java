@@ -30,7 +30,8 @@ public class ModDataMapProvider extends DataMapProvider {
                 .add(ModItems.RED_ONION_SEEDS.getId(), new Compostable(0.3f), false)
                 .add(ModItems.RED_ONION.getId(), new Compostable(0.65f), false)
                 .add(ModItems.HEMP_SEEDS.getId(), new Compostable(0.3f), false)
-                .add(ModItems.HEMP.getId(), new Compostable(0.65f), false);
+                .add(ModItems.HEMP.getId(), new Compostable(0.65f), false)
+                .add(ModItems.VAMPIRE_PUMPKIN_SEEDS.getId(), new Compostable(0.3f), false);
 
         builder(NeoForgeDataMaps.STRIPPABLES)
                 .add(ModBlocks.VAMPIRE_LOG, new Strippable(ModBlocks.STRIPPED_VAMPIRE_LOG.get()), false)

@@ -8,9 +8,12 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 
@@ -625,6 +628,41 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy(getHasName(Items.BEEF.asItem()), has(Items.STICK.asItem()))
                 .save(output);
 
+        shaped(RecipeCategory.MISC, ModItems.VAMPIRE_PUMPKIN_BREAD.get())
+                .pattern("   ")
+                .pattern("ABA")
+                .pattern("   ")
+                .define('A', Items.WHEAT.asItem())
+                .define('B', ModBlocks.VAMPIRE_PUMPKIN.asItem())
+                .unlockedBy(getHasName(Items.WHEAT.asItem()), has(ModBlocks.VAMPIRE_PUMPKIN.asItem()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, ModItems.VAMPIRE_PUMPKIN_CHEESECAKE.get())
+                .pattern("ZKZ")
+                .pattern("FEF")
+                .pattern("   ")
+                .define('Z', Items.SUGAR.asItem())
+                .define('K', ModBlocks.VAMPIRE_PUMPKIN.asItem())
+                .define('F', ModItems.FETA_CHEESE.asItem())
+                .define('E', Items.EGG.asItem())
+                .unlockedBy(getHasName(Items.SUGAR.asItem()), has(ModBlocks.VAMPIRE_PUMPKIN.asItem()))
+                .save(output);
+
+        shapeless(RecipeCategory.FOOD, ModItems.VAMPIRE_PUMPKIN_MUFFIN.get(), 4)
+                .requires(ModBlocks.VAMPIRE_PUMPKIN)
+                .requires(Items.SUGAR)
+                .requires(Items.WHEAT)
+                .requires(Items.EGG)
+                .unlockedBy("has_wheat", has(Items.WHEAT))
+                .save(output);
+
+        shapeless(RecipeCategory.FOOD, ModItems.VAMPIRE_PUMPKIN_SOUP.get())
+                .requires(ModBlocks.VAMPIRE_PUMPKIN)
+                .requires(Items.BOWL)
+                .requires(ModItems.MEAT_TOMATO)
+                .unlockedBy("has_wheat", has(Items.WHEAT))
+                .save(output);
+
         shaped(RecipeCategory.MISC, ModItems.KEBAB_MEAT.get(), 6)
                 .pattern("#")
                 .define('#', ModItems.GRILLED_KEBAB_PIKE.asItem())
@@ -1042,9 +1080,46 @@ public class ModRecipeProvider extends RecipeProvider {
                    .save(output);
 
 
+        for (DyeColor color : DyeColor.values()) {
+            Block lamp = ModBlocks.RP_LAMPS.get(color).get();
 
+            // Holt das offizielle Tag für die jeweilige Farbe (z.B. tags/items/dyes/red)
+            var dyeTag = ItemTags.create(net.minecraft.resources.Identifier.parse("c:dyes/" + color.getName()));
 
+            ShapedRecipeBuilder.shaped(this.items, RecipeCategory.REDSTONE, lamp, 4)
+                    .pattern("RRR")
+                    .pattern("GFG")
+                    .pattern("RRR")
+                    .define('R', Items.REDSTONE)
+                    .define('G', Items.GLOWSTONE_DUST)
+                    .define('F', dyeTag) // Nutzt das Farb-Tag statt eines einzelnen Items!
+                    .unlockedBy("has_redstone", has(Items.REDSTONE))
+                    .save(output);
+        }
+
+        // 2. REZEPTE FÜR INVERTIERTE RP-LAMPEN
+        for (DyeColor color : DyeColor.values()) {
+            Block normalLamp = ModBlocks.RP_LAMPS.get(color).get();
+            Block invertedLamp = ModBlocks.INVERTED_RP_LAMPS.get(color).get();
+
+            ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.REDSTONE, invertedLamp)
+                    .requires(normalLamp)
+                    .requires(Items.REDSTONE_TORCH)
+                    .unlockedBy("has_lamp", has(normalLamp))
+                    .save(output);
+
+            // Zurückcraften erlauben
+            ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.REDSTONE, normalLamp)
+                    .requires(invertedLamp)
+                    .unlockedBy("has_inverted_lamp", has(invertedLamp))
+                    .save(output, net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(invertedLamp).getPath() + "_invert_back");
+        }
     }
+
+
+
+
+
 
 
     @Override

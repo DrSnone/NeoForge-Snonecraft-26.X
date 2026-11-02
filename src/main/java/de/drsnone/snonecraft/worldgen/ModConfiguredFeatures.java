@@ -2,6 +2,7 @@ package de.drsnone.snonecraft.worldgen;
 
 import de.drsnone.snonecraft.Snonecraft;
 import de.drsnone.snonecraft.block.ModBlocks;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
@@ -20,6 +21,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.AcaciaFoliagePl
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.BendingTrunkPlacer;
+import net.minecraft.world.level.levelgen.feature.trunkplacers.ForkingTrunkPlacer;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
@@ -106,12 +108,13 @@ public class ModConfiguredFeatures {
 
         register(context, VAMPIRE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ModBlocks.VAMPIRE_LOG.get()),
-                new BendingTrunkPlacer(3, 3, 5, 3, ConstantInt.of(1)),
+                new ForkingTrunkPlacer(4, 3, 4),
 
                 BlockStateProvider.simple(ModBlocks.VAMPIRE_LEAVES.get()),
-                new AcaciaFoliagePlacer(ConstantInt.of(2), ConstantInt.of(2)),
+                new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(3), 3),
 
-                new TwoLayersFeatureSize(1, 0, 2)).build());
+                new TwoLayersFeatureSize(1, 0, 2),
+                BlockStateProvider.simple(Blocks.DIRT)).build());
 
     }
 

@@ -8,20 +8,25 @@ import de.drsnone.snonecraft.item.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
+
+
+import net.minecraft.client.data.models.model.*;
+
 import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TexturedModel;
-import net.minecraft.core.registries.BuiltInRegistries;
+
 import net.minecraft.data.PackOutput;
 
-import net.minecraft.world.item.Item;
+
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 
 
-import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredItem;
+
 
 import java.util.function.Function;
+
+import static net.minecraft.client.data.models.model.ModelTemplates.*;
 
 public class ModModelProvider extends ModelProvider {
     public ModModelProvider(PackOutput output) {
@@ -35,7 +40,7 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.RAW_SNONIUM.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RUBY.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_RUBY.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(ModItems.DIOPSID.get(),  ModelTemplates.FLAT_ITEM );
+        itemModels.generateFlatItem(ModItems.DIOPSID.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_DIOPSID.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.SAPPHIRE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_SAPPHIRE.get(), ModelTemplates.FLAT_ITEM);
@@ -53,8 +58,6 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.HEMP_CLUMP.get(), ModelTemplates.FLAT_ITEM);
 
 
-
-
         itemModels.generateFlatItem(ModItems.FETA_CHEESE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.FLATBREAD.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.GRILLED_KEBAB_PIKE.get(), ModelTemplates.FLAT_ITEM);
@@ -70,6 +73,10 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.BAT_BURGER.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.BAT_WING.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.BAT_LEATHER.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.VAMPIRE_PUMPKIN_BREAD.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.VAMPIRE_PUMPKIN_CHEESECAKE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.VAMPIRE_PUMPKIN_MUFFIN.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.VAMPIRE_PUMPKIN_SOUP.get(), ModelTemplates.FLAT_ITEM);
 
         itemModels.generateFlatItem(ModItems.SNONIUM_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.SNONIUM_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
@@ -136,8 +143,13 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateTrimmableItem(ModItems.BAT_LEGGINGS.get(), ModArmorMaterials.BAT_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
         itemModels.generateTrimmableItem(ModItems.BAT_BOOTS.get(), ModArmorMaterials.BAT_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
 
+
         itemModels.generateFlatItem(ModItems.VAMPIRE_BOAT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.VAMPIRE_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
+
+        blockModels.registerSimpleItemModel(ModBlocks.VAMPIRE_PUMPKIN.get(), net.minecraft.client.data.models.model.ModelLocationUtils.getModelLocation(ModBlocks.VAMPIRE_PUMPKIN.get()));
+        blockModels.registerSimpleItemModel(ModBlocks.CARVED_VAMPIRE_PUMPKIN.get(),
+                net.minecraft.client.data.models.model.ModelLocationUtils.getModelLocation(ModBlocks.CARVED_VAMPIRE_PUMPKIN.get()));
 
 
 
@@ -269,6 +281,7 @@ public class ModModelProvider extends ModelProvider {
 
 
 
+
         blockModels.family(ModBlocks.VAMPIRE_PLANKS.get())
                 .stairs(ModBlocks.VAMPIRE_STAIRS.get())
                 .slab(ModBlocks.VAMPIRE_SLAB.get())
@@ -286,9 +299,77 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTintedLeaves(ModBlocks.VAMPIRE_LEAVES.get(), TexturedModel.LEAVES, -12012255);
         blockModels.createPlant(ModBlocks.VAMPIRE_SAPLING.get(), ModBlocks.POTTED_VAMPIRE_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
 
+        for (DyeColor color : DyeColor.values()) {
+            Block lamp = ModBlocks.RP_LAMPS.get(color).get();
+
+            // 1. Identifier für deine Texturen erstellen
+            Identifier textureOffId = Identifier.parse(Snonecraft.MOD_ID + ":block/lamp_" + color.getName() + "_off");
+            Identifier textureOnId = Identifier.parse(Snonecraft.MOD_ID + ":block/lamp_" + color.getName() + "_on");
+
+            // 2. Verpacke sie in das Material-Objekt.
+            // Parameterreihenfolge: 1. Identifier (sprite), 2. boolean (forceTranslucent)
+            net.minecraft.client.resources.model.sprite.Material materialOff = new net.minecraft.client.resources.model.sprite.Material(
+                    textureOffId, false);
+
+            net.minecraft.client.resources.model.sprite.Material materialOn = new net.minecraft.client.resources.model.sprite.Material(
+                    textureOnId, false);
+
+            // 3. Generiere das TextureMapping für den Würfel
+            TextureMapping mappingOff = TextureMapping.cube(materialOff);
+            TextureMapping mappingOn = TextureMapping.cube(materialOn);
+
+            // 4. Erstelle die Block-Modelle (Gibt Identifier zurück)
+            Identifier modelOffLoc = ModelTemplates.CUBE_ALL.create(lamp, mappingOff, blockModels.modelOutput);
+            Identifier modelOnLoc = ModelTemplates.CUBE_ALL.createWithSuffix(lamp, "_on", mappingOn, blockModels.modelOutput);
+
+            // 5. Blockstate-JSON verknüpfen (LIT-Property steuert den Wechsel)
+            blockModels.blockStateOutput.accept(
+                    net.minecraft.client.data.models.blockstates.MultiVariantGenerator.dispatch(lamp)
+                            .with(net.minecraft.client.data.models.blockstates.PropertyDispatch.initial(RpLampBlock.LIT)
+                                    .select(false, BlockModelGenerators.plainVariant(modelOffLoc))
+                                    .select(true, BlockModelGenerators.plainVariant(modelOnLoc))
+                            )
+            );
+
+            // 6. Item-Modell für dein Inventar registrieren
+            blockModels.registerSimpleItemModel(lamp, modelOffLoc);
+        }
+
+        for (DyeColor color : DyeColor.values()) {
+            Block invertedLamp = ModBlocks.INVERTED_RP_LAMPS.get(color).get();
+
+            // Wir nutzen exakt dieselben Texturen (lamp_farbe_off / on)
+            Identifier textureOffId = Identifier.parse(Snonecraft.MOD_ID + ":block/lamp_" + color.getName() + "_off");
+            Identifier textureOnId = Identifier.parse(Snonecraft.MOD_ID + ":block/lamp_" + color.getName() + "_on");
+
+            net.minecraft.client.resources.model.sprite.Material materialOff = new net.minecraft.client.resources.model.sprite.Material(textureOffId, false);
+            net.minecraft.client.resources.model.sprite.Material materialOn = new net.minecraft.client.resources.model.sprite.Material(textureOnId, false);
+
+            TextureMapping mappingOff = TextureMapping.cube(materialOff);
+            TextureMapping mappingOn = TextureMapping.cube(materialOn);
+
+            // WICHTIG: Die Modelle für die Inverted Lamp unter eigenem Namen registrieren!
+            Identifier modelOffLoc = ModelTemplates.CUBE_ALL.create(invertedLamp, mappingOff, blockModels.modelOutput);
+            Identifier modelOnLoc = ModelTemplates.CUBE_ALL.createWithSuffix(invertedLamp, "_on", mappingOn, blockModels.modelOutput);
+
+            // Blockstate verknüpfen (LIT-Property regelt das Rendering)
+            blockModels.blockStateOutput.accept(
+                    net.minecraft.client.data.models.blockstates.MultiVariantGenerator.dispatch(invertedLamp)
+                            .with(net.minecraft.client.data.models.blockstates.PropertyDispatch.initial(RpLampBlock.LIT)
+                                    .select(false, BlockModelGenerators.plainVariant(modelOffLoc))
+                                    .select(true, BlockModelGenerators.plainVariant(modelOnLoc))
+                            )
+            );
+
+            blockModels.registerSimpleItemModel(invertedLamp, modelOnLoc);
 
 
-        //HEMP BLOCKS
+
+
+
+
+        }
+
         blockModels.family(ModBlocks.HEMP_BLOCK.get())
                 .stairs(ModBlocks.HEMP_STAIRS.get())
                 .slab(ModBlocks.HEMP_SLAB.get())
@@ -302,23 +383,126 @@ public class ModModelProvider extends ModelProvider {
 
 
 
+        /* VAMPIRE PUMPKINS */
+        // 1. Der normale Kürbis (Sauberer Ersatz für createTrivialCube mit echter Oberseite!)
+        Identifier pumpkinSide = Identifier.parse(Snonecraft.MOD_ID + ":block/vampire_pumpkin_side");
+        Identifier pumpkinTop = Identifier.parse(Snonecraft.MOD_ID + ":block/vampire_pumpkin_top");
+
+        net.minecraft.client.resources.model.sprite.Material matSide = new net.minecraft.client.resources.model.sprite.Material(pumpkinSide, false);
+        net.minecraft.client.resources.model.sprite.Material matTop = new net.minecraft.client.resources.model.sprite.Material(pumpkinTop, false);
+
+        TextureMapping pumpkinMapping = new TextureMapping()
+                .put(net.minecraft.client.data.models.model.TextureSlot.BOTTOM, matSide)
+                .put(net.minecraft.client.data.models.model.TextureSlot.TOP, matTop)
+                .put(net.minecraft.client.data.models.model.TextureSlot.SIDE, matSide);
+
+        Identifier pumpkinModelLoc = net.minecraft.client.data.models.model.ModelTemplates.CUBE_BOTTOM_TOP.create(
+                ModBlocks.VAMPIRE_PUMPKIN.get(),
+                pumpkinMapping,
+                blockModels.modelOutput
+        );
+
+        blockModels.blockStateOutput.accept(
+                BlockModelGenerators.createSimpleBlock(ModBlocks.VAMPIRE_PUMPKIN.get(), BlockModelGenerators.plainVariant(pumpkinModelLoc))
+        );
+
+
+
+        //CARVED VAMPIRE PUMPKIN
+        Identifier frontTexId = Identifier.parse(Snonecraft.MOD_ID + ":block/carved_vampire_pumpkin_front");
+        Identifier sideTexId = Identifier.parse(Snonecraft.MOD_ID + ":block/carved_vampire_pumpkin_side");
+        Identifier topTexId = Identifier.parse(Snonecraft.MOD_ID + ":block/carved_vampire_pumpkin_top");
+
+        // WICHTIG: Verpacke jeden Identifier in das von NeoForge 26.2 geforderte Material-Objekt (solide Texturen = false)
+        net.minecraft.client.resources.model.sprite.Material materialFront = new net.minecraft.client.resources.model.sprite.Material(frontTexId, false);
+        net.minecraft.client.resources.model.sprite.Material materialSide = new net.minecraft.client.resources.model.sprite.Material(sideTexId, false);
+        net.minecraft.client.resources.model.sprite.Material materialTop = new net.minecraft.client.resources.model.sprite.Material(topTexId, false);
+
+        // Jetzt füttern wir die .put()-Methode mit den fertigen Materialien. Das Rot verschwindet sofort!
+        TextureMapping carvedPumpkinMapping = new TextureMapping()
+                .put(net.minecraft.client.data.models.model.TextureSlot.FRONT, materialFront)
+                .put(net.minecraft.client.data.models.model.TextureSlot.SIDE, materialSide)
+                .put(net.minecraft.client.data.models.model.TextureSlot.TOP, materialTop);
+
+
+        // Wir erstellen das Basis-Modell und reichen das fertige Mapping an die Generierungsmethode weiter
+        Identifier carvedModelLoc = net.minecraft.client.data.models.model.ModelTemplates.CUBE_ORIENTABLE.create(
+                ModBlocks.CARVED_VAMPIRE_PUMPKIN.get(),
+                carvedPumpkinMapping,
+                blockModels.modelOutput
+        );
+
+        // Wir akzeptieren die Definition über die gesicherte Methode aus deiner Klassenliste
+        blockModels.blockStateOutput.accept(
+                net.minecraft.client.data.models.blockstates.MultiVariantGenerator.dispatch(
+                        ModBlocks.CARVED_VAMPIRE_PUMPKIN.get(),
+                        BlockModelGenerators.plainVariant(carvedModelLoc)
+                ).with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING)
+        );
+
+
+
+        /* VAMPIRE PUMPKIN STEMS */
+        Identifier stemTex = Identifier.parse(Snonecraft.MOD_ID + ":block/vampire_pumpkin_stem");
+        Identifier attachedStemTex = Identifier.parse(Snonecraft.MOD_ID + ":block/attached_vampire_pumpkin_stem");
+
+        net.minecraft.client.resources.model.sprite.Material materialStem = new net.minecraft.client.resources.model.sprite.Material(stemTex, false);
+        net.minecraft.client.resources.model.sprite.Material materialAttached = new net.minecraft.client.resources.model.sprite.Material(attachedStemTex, false);
+
+        // 1. Der wachsende Stängel
+        Identifier stemModel = CROSS.create(
+                ModBlocks.VAMPIRE_PUMPKIN_STEM.get(),
+                new TextureMapping().put(TextureSlot.CROSS, materialStem),
+                blockModels.modelOutput
+        );
+
+        // Wir schachteln es sauber in BlockModelGenerators.variant(...) ein, um die MultiVariant zu erzeugen!
+        blockModels.blockStateOutput.accept(
+                net.minecraft.client.data.models.blockstates.MultiVariantGenerator.dispatch(
+                        ModBlocks.VAMPIRE_PUMPKIN_STEM.get(),
+                        BlockModelGenerators.variant(BlockModelGenerators.plainModel(stemModel))
+                )
+        );
+
+        // 2. Der angebundene gebogene Stängel
+        Identifier attachedStemModel = CROSS.create(
+                ModBlocks.ATTACHED_VAMPIRE_PUMPKIN_STEM.get(),
+                new TextureMapping().put(TextureSlot.CROSS, materialAttached),
+                blockModels.modelOutput
+        );
+
+        // Exakt das gleiche verschachtelte Muster wie bei deinem funktionierenden geschnitzten Kürbis!
+        blockModels.blockStateOutput.accept(
+                net.minecraft.client.data.models.blockstates.MultiVariantGenerator.dispatch(
+                        ModBlocks.ATTACHED_VAMPIRE_PUMPKIN_STEM.get(),
+                        BlockModelGenerators.variant(BlockModelGenerators.plainModel(attachedStemModel))
+                ).with(BlockModelGenerators.ROTATION_HORIZONTAL_FACING)
+        );
+
+        // 3. Flaches Item-Modell für deine Samen im Inventar
+        itemModels.generateFlatItem(ModItems.VAMPIRE_PUMPKIN_SEEDS.get(), net.minecraft.client.data.models.model.ModelTemplates.FLAT_ITEM);
+
+
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

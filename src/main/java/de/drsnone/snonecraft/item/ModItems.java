@@ -5,12 +5,17 @@ import de.drsnone.snonecraft.block.ModBlocks;
 import de.drsnone.snonecraft.entity.ModEntities;
 import de.drsnone.snonecraft.food.ModFoodProperties;
 import de.drsnone.snonecraft.item.custom.HammerItem;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import java.util.Properties;
 
 public class ModItems {
@@ -51,6 +56,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> HEMP_CLUMP =
             ITEMS.registerSimpleItem("hemp_clump", properties -> properties);
+
+
 
     //SNONIUM TOOLS
     public static final DeferredItem<Item> SNONIUM_SWORD = ITEMS.registerItem("snonium_sword",
@@ -184,7 +191,6 @@ public class ModItems {
     public static final DeferredItem<Item> PICKLE = ITEMS.registerItem("pickle",
             properties -> new Item(properties.food(ModFoodProperties.PICKLE, ModFoodProperties.PICKLE_EFFECT)));
 
-
     public static final DeferredItem<Item> ICE_LETTUCE = ITEMS.registerItem("ice_lettuce",
             properties -> new Item(properties.food(ModFoodProperties.ICE_LETTUCE, ModFoodProperties.ICE_LETTUCE_EFFECT)));
     public static final DeferredItem<Item> MEAT_TOMATO = ITEMS.registerItem("meat_tomato",
@@ -209,6 +215,15 @@ public class ModItems {
             properties -> new Item(properties.food(ModFoodProperties.SNOENER, ModFoodProperties.SNOENER_EFFECT)));
     public static final DeferredItem<Item> SNOENER_BOX = ITEMS.registerItem("snoener_box",
             properties -> new Item(properties.food(ModFoodProperties.SNOENER_BOX, ModFoodProperties.SNOENER_BOX_EFFECT)));
+
+    public static final DeferredItem<Item> VAMPIRE_PUMPKIN_BREAD = ITEMS.registerItem("vampire_pumpkin_bread",
+            properties -> new Item(properties.food(ModFoodProperties.VAMPIRE_PUMPKIN_BREAD, ModFoodProperties.VAMPIRE_PUMPKIN_BREAD_EFFECT)));
+    public static final DeferredItem<Item> VAMPIRE_PUMPKIN_CHEESECAKE = ITEMS.registerItem("vampire_pumpkin_cheesecake",
+            properties -> new Item(properties.food(ModFoodProperties.VAMPIRE_PUMPKIN_CHEESECAKE, ModFoodProperties.VAMPIRE_PUMPKIN_CHEESECAKE_EFFECT)));
+    public static final DeferredItem<Item> VAMPIRE_PUMPKIN_MUFFIN = ITEMS.registerItem("vampire_pumpkin_muffin",
+            properties -> new Item(properties.food(ModFoodProperties.VAMPIRE_PUMPKIN_MUFFIN, ModFoodProperties.VAMPIRE_PUMPKIN_MUFFIN_EFFECT)));
+    public static final DeferredItem<Item> VAMPIRE_PUMPKIN_SOUP = ITEMS.registerItem("vampire_pumpkin_soup",
+            properties -> new Item(properties.food(ModFoodProperties.VAMPIRE_PUMPKIN_SOUP, ModFoodProperties.VAMPIRE_PUMPKIN_SOUP_EFFECT)));
 
     //BAT DROPS and FOOD
     public static final DeferredItem<Item> BAT_WING =
@@ -243,7 +258,21 @@ public class ModItems {
     public static final DeferredItem<Item> VAMPIRE_CHEST_BOAT = ITEMS.registerItem("vampire_chest_boat",
             properties -> new BoatItem(ModEntities.VAMPIRE_CHEST_BOAT.get(), properties.stacksTo(1)));
 
+    public static final net.neoforged.neoforge.registries.DeferredItem<Item> VAMPIRE_PUMPKIN_SEEDS = ITEMS.register("vampire_pumpkin_seeds",
+            id -> new Item(new Item.Properties().setId(
+                    ResourceKey.create(Registries.ITEM, net.minecraft.resources.Identifier.parse(Snonecraft.MOD_ID + ":vampire_pumpkin_seeds"))
+            )));
 
+
+
+
+
+
+
+
+    public static ResourceKey<Item> getRK(Item item) {
+        return BuiltInRegistries.ITEM.getResourceKey(item).get();
+    }
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

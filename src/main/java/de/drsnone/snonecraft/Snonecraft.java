@@ -5,22 +5,17 @@ import de.drsnone.snonecraft.creativetab.ModCreativeModeTabs;
 import de.drsnone.snonecraft.entity.ModEntities;
 import de.drsnone.snonecraft.item.ModItems;
 import de.drsnone.snonecraft.loot.ModLootModifiers;
+
 import net.minecraft.world.level.block.FlowerPotBlock;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
+
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
+
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.MapColor;
+
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -30,10 +25,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(Snonecraft.MOD_ID)
@@ -45,12 +37,15 @@ public class Snonecraft {
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public Snonecraft(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
+
         modEventBus.addListener(this::commonSetup);
 
-        ModCreativeModeTabs.register(modEventBus);
+
+        ModBlocks.register(modEventBus);
 
         ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
+
+        ModCreativeModeTabs.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
 
@@ -66,6 +61,29 @@ public class Snonecraft {
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+        net.neoforged.neoforge.common.NeoForge.EVENT_BUS.register(new Object() {
+            @net.neoforged.bus.api.SubscribeEvent
+            public void onRightClick(net.neoforged.neoforge.event.entity.player.PlayerInteractEvent.RightClickBlock event) {
+                if (event.getItemStack().is(ModItems.VAMPIRE_PUMPKIN_SEEDS.get())) {
+                    net.minecraft.world.level.block.state.BlockState targetState = event.getLevel().getBlockState(event.getPos());
+
+                    // Prüft, ob der Spieler auf Ackerboden (Farmland) klickt
+                    if (targetState.is(net.minecraft.world.level.block.Blocks.FARMLAND) && event.getLevel().getBlockState(event.getPos().above()).isAir()) {
+                        event.getLevel().setBlockAndUpdate(event.getPos().above(), ModBlocks.VAMPIRE_PUMPKIN_STEM.get().defaultBlockState());
+                        event.getLevel().playSound(null, event.getPos().above(), net.minecraft.sounds.SoundEvents.CROP_PLANTED, net.minecraft.sounds.SoundSource.BLOCKS, 1.0F, 1.0F);
+
+                        if (!event.getEntity().isCreative()) {
+                            event.getItemStack().shrink(1);
+                        }
+                        event.setCancellationResult(net.minecraft.world.InteractionResult.SUCCESS);
+                        event.setCanceled(true);
+                    }
+                }
+            }
+        });
+
+
+
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -78,6 +96,8 @@ public class Snonecraft {
         });
 
     }
+
+
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {

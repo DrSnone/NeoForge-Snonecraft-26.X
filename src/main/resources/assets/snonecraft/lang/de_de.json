@@ -25,6 +25,10 @@
   "item.snonecraft.grilled_kebab_pike": "Gegrillter Kebab Spieß",
   "item.snonecraft.snoener": "Snoener",
   "item.snonecraft.snoener_box": "Snoener Box",
+  "item.snonecraft.vampire_pumpkin_bread": "Vampir Kürbis Brot",
+  "item.snonecraft.vampire_pumpkin_cheesecake": "Vampir Kürbis Käsekuchen",
+  "item.snonecraft.vampire_pumpkin_muffin": "Vampir Kürbis Muffin",
+  "item.snonecraft.vampire_pumpkin_soup": "Vampir Kürbis Suppe",
 
   "item.snonecraft.hemp": "Hanf",
   "item.snonecraft.hemp_clump": "Hanf Klumpen",
@@ -40,6 +44,8 @@
   "item.snonecraft.ice_lettuce_seeds": "Eisbergsalat Samen",
   "item.snonecraft.meat_tomato_seeds": "Fleischtomaten Samen",
   "item.snonecraft.red_onion_seeds": "Rote Zwiebel Samen",
+  "item.snonecraft.hemp_seeds": "Hanf Samen",
+  "item.snonecraft.vampire_pumpkin_seeds": "Vampir Kürbis Samen",
 
   "item.snonecraft.snonium_sword": "Snonium Schwert",
   "item.snonecraft.snonium_pickaxe": "Snonium Pickaxt",
@@ -250,10 +256,47 @@
   "block.snonecraft.vampire_door": "Vampirholz Tür",
   "block.snonecraft.vampire_trapdoor": "Vampirholz Falltür",
 
+  "block.snonecraft.white_rp_lamp": "Weiße RP-Lampe",
+  "block.snonecraft.orange_rp_lamp": "Orange RP-Lampe",
+  "block.snonecraft.magenta_rp_lamp": "Magenta RP-Lampe",
+  "block.snonecraft.light_blue_rp_lamp": "Hellblaue RP-Lampe",
+  "block.snonecraft.yellow_rp_lamp": "Gelbe RP-Lampe",
+  "block.snonecraft.lime_rp_lamp": "Hellgrüne RP-Lampe",
+  "block.snonecraft.pink_rp_lamp": "Rosa RP-Lampe",
+  "block.snonecraft.gray_rp_lamp": "Graue RP-Lampe",
+  "block.snonecraft.light_gray_rp_lamp": "Hellgraue RP-Lampe",
+  "block.snonecraft.cyan_rp_lamp": "Türkise RP-Lampe",
+  "block.snonecraft.purple_rp_lamp": "Violette RP-Lampe",
+  "block.snonecraft.blue_rp_lamp": "Blaue RP-Lampe",
+  "block.snonecraft.brown_rp_lamp": "Braune RP-Lampe",
+  "block.snonecraft.green_rp_lamp": "Grüne RP-Lampe",
+  "block.snonecraft.red_rp_lamp": "Rote RP-Lampe",
+  "block.snonecraft.black_rp_lamp": "Schwarze RP-Lampe",
+
+  "block.snonecraft.white_inverted_rp_lamp": "Invertierte weiße RP-Lampe",
+  "block.snonecraft.orange_inverted_rp_lamp": "Invertierte orange RP-Lampe",
+  "block.snonecraft.magenta_inverted_rp_lamp": "Invertierte magenta RP-Lampe",
+  "block.snonecraft.light_blue_inverted_rp_lamp": "Invertierte hellblaue RP-Lampe",
+  "block.snonecraft.yellow_inverted_rp_lamp": "Invertierte gelbe RP-Lampe",
+  "block.snonecraft.lime_inverted_rp_lamp": "Invertierte hellgrüne RP-Lampe",
+  "block.snonecraft.pink_inverted_rp_lamp": "Invertierte rosa RP-Lampe",
+  "block.snonecraft.gray_inverted_rp_lamp": "Invertierte graue RP-Lampe",
+  "block.snonecraft.light_gray_inverted_rp_lamp": "Invertierte hellgraue RP-Lampe",
+  "block.snonecraft.cyan_inverted_rp_lamp": "Invertierte türkise RP-Lampe",
+  "block.snonecraft.purple_inverted_rp_lamp": "Invertierte violette RP-Lampe",
+  "block.snonecraft.blue_inverted_rp_lamp": "Invertierte blaue RP-Lampe",
+  "block.snonecraft.brown_inverted_rp_lamp": "Invertierte braune RP-Lampe",
+  "block.snonecraft.green_inverted_rp_lamp": "Invertierte grüne RP-Lampe",
+  "block.snonecraft.red_inverted_rp_lamp": "Invertierte rote RP-Lampe",
+  "block.snonecraft.black_inverted_rp_lamp": "Invertierte schwarze RP-Lampe",
+
+  "block.snonecraft.vampire_pumpkin": "Vampir Kürbis",
+  "block.snonecraft.carved_vampire_pumpkin": "Geschnitzter Vampir Kürbis",
+
   "entity.snonecraft.vampire_chest_boat": "Vampir Boot",
 
 
 
-  "creativetab.snonecraft.snonecraft_items_tab": "Snonecraft Artikel",
-  "creativetab.snonecraft.snonecraft_blocks_tab": "Snonecraft Blöcke"
+  "creativetab.snonecraft.snonium_items": "Snonecraft Artikel",
+  "creativetab.snonecraft.snonium_blocks": "Snonecraft Blöcke"
 }

@@ -1,16 +1,19 @@
 package de.drsnone.snonecraft.datagen;
 
+import de.drsnone.snonecraft.Snonecraft;
 import de.drsnone.snonecraft.block.ModBlocks;
 import de.drsnone.snonecraft.block.custom.PickleCropBlock;
 import de.drsnone.snonecraft.item.ModItems;
 
-import net.minecraft.advancements.criterion.StatePropertiesPredicate;
+
+import net.minecraft.advancements.predicates.StatePropertiesPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -130,7 +133,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.SANDSTONE_BRICK_WALL.get());
 
 
-
         dropSelf(ModBlocks.HEMP_BLOCK.get());
         dropSelf(ModBlocks.HEMP_STAIRS.get());
         add(ModBlocks.HEMP_SLAB.get(), this::createSlabItemTable);
@@ -168,23 +170,23 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         add(ModBlocks.PICKLE_CROP.get(), createCropDrops(ModBlocks.PICKLE_CROP.get(), ModItems.PICKLE.get(),
                 ModItems.PICKLE_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.PICKLE_CROP.get())
-                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 5))));
+                        .setProperties(net.minecraft.advancements.predicates.StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 5))));
 
         add(ModBlocks.ICE_LETTUCE_CROP.get(), createCropDrops(ModBlocks.ICE_LETTUCE_CROP.get(), ModItems.ICE_LETTUCE.get(),
                 ModItems.ICE_LETTUCE_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.ICE_LETTUCE_CROP.get())
-                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 5))));
+                        .setProperties(net.minecraft.advancements.predicates.StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 5))));
 
         add(ModBlocks.MEAT_TOMATO_CROP.get(), createCropDrops(ModBlocks.MEAT_TOMATO_CROP.get(), ModItems.MEAT_TOMATO.get(),
                 ModItems.MEAT_TOMATO_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.MEAT_TOMATO_CROP.get())
-                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 5))));
+                        .setProperties(net.minecraft.advancements.predicates.StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 5))));
 
         add(ModBlocks.RED_ONION_CROP.get(), createCropDrops(ModBlocks.RED_ONION_CROP.get(), ModItems.RED_ONION.get(),
                 ModItems.RED_ONION_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.RED_ONION_CROP.get())
-                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 5))));
+                        .setProperties(net.minecraft.advancements.predicates.StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 5))));
 
         add(ModBlocks.HEMP_CROP.get(), createCropDrops(ModBlocks.HEMP_CROP.get(), ModItems.HEMP.get(),
                 ModItems.HEMP_SEEDS.get(), LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.HEMP_CROP.get())
-                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 7))));
+                        .setProperties(net.minecraft.advancements.predicates.StatePropertiesPredicate.Builder.properties().hasProperty(PickleCropBlock.AGE, 7))));
 
 
         dropSelf(ModBlocks.VAMPIRE_LOG.get());
@@ -212,6 +214,38 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.VAMPIRE_TRAPDOOR.get());
         add(ModBlocks.VAMPIRE_DOOR.get(), this::createDoorTable);
 
+        this.dropSelf(ModBlocks.VAMPIRE_PUMPKIN.get());
+        this.dropSelf(ModBlocks.CARVED_VAMPIRE_PUMPKIN.get());
+
+        net.minecraft.world.item.Item seedsItem = ModItems.VAMPIRE_PUMPKIN_SEEDS.get();
+
+        // 1. Der wachsende Stängel nutzt die Altersprüfung (createStemDrops)
+        this.add(ModBlocks.VAMPIRE_PUMPKIN_STEM.get(), this.createStemDrops(ModBlocks.VAMPIRE_PUMPKIN_STEM.get(), seedsItem));
+
+        // 2. Der gebogene Stängel droppt einfach direkt die Samen, da er kein 'age' besitzt!
+        this.add(ModBlocks.ATTACHED_VAMPIRE_PUMPKIN_STEM.get(), this.createSingleItemTable(seedsItem));
+
+        for (DyeColor color : DyeColor.values()) {
+            Block lamp = ModBlocks.RP_LAMPS.get(color).get();
+
+            // Sorgt dafür, dass die Lampe sich selbst droppt, wenn man sie abbaut
+            this.dropSelf(lamp);
+        }
+
+        for (DyeColor color : DyeColor.values()) {
+            Block invertedLamp = ModBlocks.INVERTED_RP_LAMPS.get(color).get();
+
+            // Sorgt dafür, dass die invertierte Lampe sich selbst droppt
+            this.dropSelf(invertedLamp);
+        }
+
+
+
+
+
+
+
+
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {
@@ -227,4 +261,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         protected Iterable<Block> getKnownBlocks() {
             return ModBlocks.BLOCKS.getEntries().stream().map(Holder::value)::iterator;
         }
+
+
 }

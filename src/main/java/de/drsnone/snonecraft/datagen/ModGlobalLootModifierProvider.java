@@ -70,6 +70,15 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
                         LootItemRandomChanceCondition.randomChance(0.25f).build() }, new ItemStackTemplate(ModItems.HEMP_SEEDS.get(), 2)));
 
+        add("vampire_pumpkin_seed_to_short_grass",
+                new AddItemStackModifier(new LootItemCondition[]{
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.SHORT_GRASS).build(),
+                        LootItemRandomChanceCondition.randomChance(0.25f).build() }, new ItemStackTemplate(ModItems.VAMPIRE_PUMPKIN_SEEDS.get(), 2)));
+        add("vampire_pumpkin_seed_to_tall_grass",
+                new AddItemStackModifier(new LootItemCondition[]{
+                        LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.TALL_GRASS).build(),
+                        LootItemRandomChanceCondition.randomChance(0.25f).build() }, new ItemStackTemplate(ModItems.VAMPIRE_PUMPKIN_SEEDS.get(), 2)));
+
         add("bat_wing_to_bat",
                 new AddItemStackModifier(new LootItemCondition[]{
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("entities/bat")).build() },

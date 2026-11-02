@@ -75,4 +75,20 @@ public class ModFoodProperties {
     public static final FoodProperties BAT_BURGER = new FoodProperties.Builder().saturationModifier(0.5f).build();
     public static final Consumable BAT_BURGER_EFFECT = Consumables.defaultFood().onConsume(
             new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 350), 0.45f)).build();
+
+    public static final FoodProperties VAMPIRE_PUMPKIN_BREAD = new FoodProperties.Builder().saturationModifier(0.3f).build();
+    public static final Consumable VAMPIRE_PUMPKIN_BREAD_EFFECT = Consumables.defaultFood().onConsume(
+            new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 350), 0.45f)).build();
+
+    public static final FoodProperties VAMPIRE_PUMPKIN_CHEESECAKE = new FoodProperties.Builder().saturationModifier(0.4f).build();
+    public static final Consumable VAMPIRE_PUMPKIN_CHEESECAKE_EFFECT = Consumables.defaultFood().onConsume(
+            new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 350), 0.45f)).build();
+
+    public static final FoodProperties VAMPIRE_PUMPKIN_MUFFIN = new FoodProperties.Builder().saturationModifier(0.4f).build();
+    public static final Consumable VAMPIRE_PUMPKIN_MUFFIN_EFFECT = Consumables.defaultFood().onConsume(
+            new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.LUCK, 350), 0.45f)).build();
+
+    public static final FoodProperties VAMPIRE_PUMPKIN_SOUP = new FoodProperties.Builder().saturationModifier(0.6f).build();
+    public static final Consumable VAMPIRE_PUMPKIN_SOUP_EFFECT = Consumables.defaultFood().onConsume(
+            new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 350), 0.45f)).build();
 }

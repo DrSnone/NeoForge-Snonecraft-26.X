@@ -7,8 +7,14 @@ import de.drsnone.snonecraft.worldgen.tree.ModTreeGrowers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
@@ -22,6 +28,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -58,6 +66,8 @@ public class ModBlocks {
                     properties.strength(2f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> SNONIUM_BRICK_SLAB = registerBlock("snonium_brick_slab",
             properties -> new SlabBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+
+
 
 
 
@@ -473,10 +483,107 @@ public class ModBlocks {
             properties -> new TrapDoorBlock(BlockSetType.ACACIA, properties.strength(2f)
                     .requiresCorrectToolForDrops().noOcclusion().isValidSpawn(Blocks::never)));
 
+    // ==========================================
+    // 1. DIE GRUNDBLÖCKE REGISTRIEREN
+    // ==========================================
+    public static final DeferredBlock<Block> VAMPIRE_PUMPKIN = registerBlock("vampire_pumpkin",
+            properties -> new VampirePumpkinBlock(properties.strength(1.0F).sound(SoundType.WOOD)));
+
+    public static final DeferredBlock<Block> CARVED_VAMPIRE_PUMPKIN = registerBlock("carved_vampire_pumpkin",
+            properties -> new CarvedPumpkinBlock(properties.strength(1.0F).sound(SoundType.WOOD)));
+
+
+    // ==========================================
+    // 2. DIE TAGKEYS FÜR DEN BODEN DEKLARIEREN
+    // ==========================================
+    public static final TagKey<Block> STEM_GROW_TAG = TagKey.create(Registries.BLOCK,
+            net.minecraft.resources.Identifier.parse("minecraft:pumpkin_stem_plantable_on"));
+
+    public static final TagKey<Block> FRUIT_SPAWN_TAG = TagKey.create(Registries.BLOCK,
+            net.minecraft.resources.Identifier.parse("minecraft:pumpkin_grows_on"));
+
+
+    // ==========================================
+    // 3. DIE STÄNGEL REGISTRIEREN (Nutzen .getId() und wandeln es fehlerfrei um)
+    // ==========================================
+    public static final DeferredBlock<Block> VAMPIRE_PUMPKIN_STEM = registerBlock("vampire_pumpkin_stem",
+            properties -> new StemBlock(
+                    ResourceKey.create(Registries.BLOCK, net.minecraft.resources.Identifier.parse(Snonecraft.MOD_ID + ":vampire_pumpkin")),
+                    ResourceKey.create(Registries.BLOCK, net.minecraft.resources.Identifier.parse(Snonecraft.MOD_ID + ":attached_vampire_pumpkin_stem")),
+                    ResourceKey.create(Registries.ITEM, net.minecraft.resources.Identifier.parse(Snonecraft.MOD_ID + ":vampire_pumpkin_seeds")),
+                    STEM_GROW_TAG,
+                    FRUIT_SPAWN_TAG,
+                    properties.noCollision().randomTicks().instabreak().sound(SoundType.CROP)
+            ));
+
+    public static final DeferredBlock<Block> ATTACHED_VAMPIRE_PUMPKIN_STEM = registerBlock("attached_vampire_pumpkin_stem",
+            properties -> new AttachedStemBlock(
+                    ResourceKey.create(Registries.BLOCK, net.minecraft.resources.Identifier.parse(Snonecraft.MOD_ID + ":vampire_pumpkin_stem")),
+                    ResourceKey.create(Registries.BLOCK, net.minecraft.resources.Identifier.parse(Snonecraft.MOD_ID + ":vampire_pumpkin")),
+                    ResourceKey.create(Registries.ITEM, net.minecraft.resources.Identifier.parse(Snonecraft.MOD_ID + ":vampire_pumpkin_seeds")),
+                    STEM_GROW_TAG,
+                    properties.noCollision().instabreak().sound(SoundType.CROP)
+            ));
 
 
 
 
+
+
+    public static final Map<DyeColor, DeferredBlock<Block>> RP_LAMPS = new EnumMap<>(DyeColor.class);
+    public static final Map<DyeColor, DeferredBlock<Block>> INVERTED_RP_LAMPS = new EnumMap<>(DyeColor.class);
+
+
+
+    static {
+        // Schleife über alle 16 Farben unter Verwendung deiner eigenen registerBlock-Methode
+        for (DyeColor color : DyeColor.values()) {
+            String name = color.getName() + "_rp_lamp";
+
+            // Das 'properties'-Objekt wird von deiner Methode hineingereicht,
+            // dahinter setzen wir das 'false' für normale Lampen.
+            DeferredBlock<Block> registeredBlock = registerBlock(name,
+                    properties -> new RpLampBlock(properties
+                            .sound(SoundType.GLASS)
+                            .strength(0.3F)
+                            .lightLevel(state -> state.getValue(RpLampBlock.LIT) ? 15 : 0), false));
+
+            RP_LAMPS.put(color, registeredBlock);
+        }
+
+        // 2. SCHLEIFE: INVERTIERTE LAMPEN (Starten AN -> true)
+        for (DyeColor color : DyeColor.values()) {
+            String name = color.getName() + "_inverted_rp_lamp";
+
+            // Genau dasselbe System, aber am Ende übergeben wir 'true' für Inverted.
+            DeferredBlock<Block> registeredBlock = registerBlock(name,
+                    properties -> new RpLampBlock(properties
+                            .sound(SoundType.GLASS)
+                            .strength(0.3F)
+                            .lightLevel(state -> state.getValue(RpLampBlock.LIT) ? 15 : 0), true));
+
+            INVERTED_RP_LAMPS.put(color, registeredBlock);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static ResourceKey<Block> getRK(Block block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+    }
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
         DeferredBlock<T> toReturn = BLOCKS.registerBlock(name, function);
