@@ -181,6 +181,10 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.createTrivialCube(ModBlocks.AMBER_ORE.get());
 
+        blockModels.createTrivialCube(ModBlocks.WHITE_MARBLE_CHISELED.get());
+        blockModels.createTrivialCube(ModBlocks.WHITE_MARBLE_ENGRAVED.get());
+        blockModels.createTrivialCube(ModBlocks.WHITE_MARBLE_RUNED.get());
+
         blockModels.family(ModBlocks.AMBER_BLOCK.get())
                 .stairs(ModBlocks.AMBER_BLOCK_STAIRS.get())
                 .slab(ModBlocks.AMBER_BLOCK_SLAB.get());
@@ -237,6 +241,11 @@ public class ModModelProvider extends ModelProvider {
                 .stairs(ModBlocks.WHITE_MARBLE_BRICK_STAIRS.get())
                 .slab(ModBlocks.WHITE_MARBLE_BRICK_SLAB.get())
                 .wall(ModBlocks.WHITE_MARBLE_BRICK_WALL.get());
+
+        blockModels.family(ModBlocks.WHITE_MARBLE_BRICK_BIG.get())
+                .stairs(ModBlocks.WHITE_MARBLE_BRICK_BIG_STAIRS.get())
+                .slab(ModBlocks.WHITE_MARBLE_BRICK_BIG_SLAB.get())
+                .wall(ModBlocks.WHITE_MARBLE_BRICK_BIG_WALL.get());
 
         blockModels.family(ModBlocks.WHITE_MARBLE_BRICK_SMALL.get())
                 .stairs(ModBlocks.WHITE_MARBLE_BRICK_SMALL_STAIRS.get())

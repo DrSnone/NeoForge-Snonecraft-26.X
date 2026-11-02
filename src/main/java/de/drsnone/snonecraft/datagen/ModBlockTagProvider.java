@@ -97,6 +97,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.getRK(ModBlocks.HEMP_BLOCK.get()))
                 .add(ModBlocks.getRK(ModBlocks.HEMP_STAIRS.get()))
                 .add(ModBlocks.getRK(ModBlocks.HEMP_SLAB.get()))
+                .add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_BRICK_BIG.get()))
+                .add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_BRICK_BIG_STAIRS.get()))
+                .add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_BRICK_BIG_SLAB.get()))
+                .add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_CHISELED.get()))
+                .add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_ENGRAVED.get()))
+                .add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_RUNED.get()))
                 .add(ModBlocks.getRK(ModBlocks.SANDSTONE_BRICK.get()))
                 .add(ModBlocks.getRK(ModBlocks.SANDSTONE_BRICK_STAIRS.get()))
                 .add(ModBlocks.getRK(ModBlocks.SANDSTONE_BRICK_SLAB.get()));
@@ -117,6 +123,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.FENCE_GATES).add(ModBlocks.getRK(ModBlocks.VAMPIRE_FENCE_GATE.get()));
 
         tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_WALL.get()));
+        tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_BRICK_BIG_WALL.get()));
         tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.WHITE_POLISHED_MARBLE_WALL.get()));
         tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.GREEN_MARBLE_WALL.get()));
         tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.GREEN_POLISHED_MARBLE_WALL.get()));

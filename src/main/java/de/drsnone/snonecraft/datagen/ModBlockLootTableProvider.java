@@ -96,6 +96,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         add(ModBlocks.WHITE_MARBLE_BRICK_SLAB.get(), this::createSlabItemTable);
         dropSelf(ModBlocks.WHITE_MARBLE_BRICK_WALL.get());
 
+        dropSelf(ModBlocks.WHITE_MARBLE_BRICK_BIG.get());
+        dropSelf(ModBlocks.WHITE_MARBLE_BRICK_BIG_STAIRS.get());
+        add(ModBlocks.WHITE_MARBLE_BRICK_BIG_SLAB.get(), this::createSlabItemTable);
+        dropSelf(ModBlocks.WHITE_MARBLE_BRICK_BIG_WALL.get());
+
         dropSelf(ModBlocks.WHITE_MARBLE_BRICK_SMALL.get());
         dropSelf(ModBlocks.WHITE_MARBLE_BRICK_SMALL_STAIRS.get());
         add(ModBlocks.WHITE_MARBLE_BRICK_SMALL_SLAB.get(), this::createSlabItemTable);
@@ -125,6 +130,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BLACK_MARBLE_FANCY_STAIRS.get());
         add(ModBlocks.BLACK_MARBLE_FANCY_SLAB.get(), this::createSlabItemTable);
         dropSelf(ModBlocks.BLACK_MARBLE_FANCY_WALL.get());
+
+        dropSelf(ModBlocks.WHITE_MARBLE_CHISELED.get());
+        dropSelf(ModBlocks.WHITE_MARBLE_ENGRAVED.get());
+        dropSelf(ModBlocks.WHITE_MARBLE_RUNED.get());
 
 
         dropSelf(ModBlocks.SANDSTONE_BRICK.get());

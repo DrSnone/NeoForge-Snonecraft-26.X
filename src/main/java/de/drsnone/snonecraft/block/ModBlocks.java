@@ -148,6 +148,29 @@ public class ModBlocks {
     public static final DeferredBlock<Block> WHITE_MARBLE_MOSAIK_WALL = registerBlock("white_marble_mosaik_wall",
             properties -> new WallBlock(properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn()));
 
+    public static final DeferredBlock<Block> WHITE_MARBLE_BRICK_BIG = registerBlock("white_marble_brick_big",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    public static final DeferredBlock<Block> WHITE_MARBLE_BRICK_BIG_STAIRS = registerBlock("white_marble_brick_big_stairs",
+            properties -> new StairBlock(ModBlocks.WHITE_MARBLE_MOSAIK.get().defaultBlockState(),
+                    properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> WHITE_MARBLE_BRICK_BIG_SLAB = registerBlock("white_marble_brick_big_slab",
+            properties -> new SlabBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> WHITE_MARBLE_BRICK_BIG_WALL = registerBlock("white_marble_brick_big_wall",
+            properties -> new WallBlock(properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn()));
+
+    public static final DeferredBlock<Block> WHITE_MARBLE_CHISELED = registerBlock("white_marble_chiseled",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> WHITE_MARBLE_ENGRAVED = registerBlock("white_marble_engraved",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.METAL)));
+
+    public static final DeferredBlock<Block> WHITE_MARBLE_RUNED = registerBlock("white_marble_runed",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.METAL)));
+
 
     public static final DeferredBlock<Block> GREEN_MARBLE = registerBlock("green_marble",
             properties -> new Block(properties.strength(4f)

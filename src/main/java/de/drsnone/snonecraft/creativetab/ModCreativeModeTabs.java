@@ -209,6 +209,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.WHITE_MARBLE_BRICK_SLAB);
                         output.accept(ModBlocks.WHITE_MARBLE_BRICK_WALL);
 
+                        output.accept(ModBlocks.WHITE_MARBLE_BRICK_BIG);
+                        output.accept(ModBlocks.WHITE_MARBLE_BRICK_BIG_STAIRS);
+                        output.accept(ModBlocks.WHITE_MARBLE_BRICK_BIG_SLAB);
+                        output.accept(ModBlocks.WHITE_MARBLE_BRICK_BIG_WALL);
+
                         output.accept(ModBlocks.WHITE_MARBLE_BRICK_SMALL);
                         output.accept(ModBlocks.WHITE_MARBLE_BRICK_SMALL_STAIRS);
                         output.accept(ModBlocks.WHITE_MARBLE_BRICK_SMALL_SLAB);
@@ -223,6 +228,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.WHITE_MARBLE_MOSAIK_STAIRS);
                         output.accept(ModBlocks.WHITE_MARBLE_MOSAIK_SLAB);
                         output.accept(ModBlocks.WHITE_MARBLE_MOSAIK_WALL);
+
+                        output.accept(ModBlocks.WHITE_MARBLE_CHISELED);
+                        output.accept(ModBlocks.WHITE_MARBLE_ENGRAVED);
+                        output.accept(ModBlocks.WHITE_MARBLE_RUNED);
 
                         output.accept(ModBlocks.GREEN_MARBLE);
                         output.accept(ModBlocks.GREEN_MARBLE_STAIRS);

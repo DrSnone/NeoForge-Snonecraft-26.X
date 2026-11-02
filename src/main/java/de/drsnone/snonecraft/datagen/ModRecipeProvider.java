@@ -819,6 +819,19 @@ public class ModRecipeProvider extends RecipeProvider {
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_SLAB.get(), ModBlocks.WHITE_MARBLE_BRICK);
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_WALL.get(), ModBlocks.WHITE_MARBLE_BRICK.get());
 
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_BRICK_BIG.get())
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', ModBlocks.WHITE_MARBLE_FANCY.get())
+                .unlockedBy(getHasName(ModBlocks.WHITE_MARBLE_FANCY.get()), has(ModBlocks.WHITE_MARBLE_FANCY.get()))
+                .save(output);
+
+        stairBuilder(ModBlocks.WHITE_MARBLE_BRICK_BIG_STAIRS.get(), Ingredient.of(ModBlocks.WHITE_MARBLE_BRICK_BIG.get())).group("white_marble_brick_big")
+                .unlockedBy("has_white_marble_brick_big", has(ModBlocks.WHITE_MARBLE_BRICK_BIG.get()))
+                .save(output);
+        slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_BIG_SLAB.get(), ModBlocks.WHITE_MARBLE_BRICK_BIG);
+        wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_BIG_WALL.get(), ModBlocks.WHITE_MARBLE_BRICK_BIG.get());
+
         shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_BRICK_SMALL.get())
                 .pattern("SS")
                 .pattern("SS")
@@ -858,6 +871,27 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_MOSAIK_SLAB.get(), ModBlocks.WHITE_MARBLE_MOSAIK);
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_MOSAIK_WALL.get(), ModBlocks.WHITE_MARBLE_MOSAIK.get());
+
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_CHISELED.get(), 4)
+                .pattern("RR")
+                .pattern("RR")
+                .define('R', ModBlocks.WHITE_MARBLE_BRICK_BIG.get())
+                .unlockedBy(getHasName(ModBlocks.WHITE_MARBLE_BRICK_BIG.get()), has(ModBlocks.WHITE_MARBLE_BRICK_BIG.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_ENGRAVED.get(), 4)
+                .pattern("RR")
+                .pattern("RR")
+                .define('R', ModBlocks.WHITE_MARBLE_CHISELED.get())
+                .unlockedBy(getHasName(ModBlocks.WHITE_MARBLE_CHISELED.get()), has(ModBlocks.WHITE_MARBLE_CHISELED.get()))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_RUNED.get(), 4)
+                .pattern("RR")
+                .pattern("RR")
+                .define('R', ModBlocks.WHITE_MARBLE_ENGRAVED.get())
+                .unlockedBy(getHasName(ModBlocks.WHITE_MARBLE_ENGRAVED.get()), has(ModBlocks.WHITE_MARBLE_ENGRAVED.get()))
+                .save(output);
 
 
         shaped(RecipeCategory.MISC, ModBlocks.BLACK_MARBLE_BRICK.get())
