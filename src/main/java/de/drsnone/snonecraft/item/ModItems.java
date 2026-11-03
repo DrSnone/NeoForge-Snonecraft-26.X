@@ -225,6 +225,12 @@ public class ModItems {
     public static final DeferredItem<Item> VAMPIRE_PUMPKIN_SOUP = ITEMS.registerItem("vampire_pumpkin_soup",
             properties -> new Item(properties.food(ModFoodProperties.VAMPIRE_PUMPKIN_SOUP, ModFoodProperties.VAMPIRE_PUMPKIN_SOUP_EFFECT)));
 
+    public static final net.neoforged.neoforge.registries.DeferredItem<net.minecraft.world.item.Item> BLOOD_DROP_ITEM = ITEMS.register("blood_drop_item",
+            id -> new net.minecraft.world.item.Item(new net.minecraft.world.item.Item.Properties().setId(
+                    net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.ITEM,
+                            net.minecraft.resources.Identifier.parse(Snonecraft.MOD_ID + ":blood_drop_item"))
+            )));
+
     //BAT DROPS and FOOD
     public static final DeferredItem<Item> BAT_WING =
             ITEMS.registerSimpleItem("bat_wing", properties -> properties);

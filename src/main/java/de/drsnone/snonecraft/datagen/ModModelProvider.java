@@ -308,6 +308,68 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTintedLeaves(ModBlocks.VAMPIRE_LEAVES.get(), TexturedModel.LEAVES, -12012255);
         blockModels.createPlant(ModBlocks.VAMPIRE_SAPLING.get(), ModBlocks.POTTED_VAMPIRE_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
 
+        /* BLOOD DROP BLOCK DATA GENERATION */
+
+// 1. Texturen für beide Stufen sauber definieren
+        net.minecraft.resources.Identifier texStage0 = net.minecraft.resources.Identifier.fromNamespaceAndPath(Snonecraft.MOD_ID, "block/blood_drop_stage0");
+        net.minecraft.resources.Identifier texStage1 = net.minecraft.resources.Identifier.fromNamespaceAndPath(Snonecraft.MOD_ID, "block/blood_drop_stage1");
+
+// 2. Verpacken in das Material-Objekt (zwingend erforderlich für das TextureMapping)
+        net.minecraft.client.resources.model.sprite.Material matStage0 = new net.minecraft.client.resources.model.sprite.Material(texStage0, false);
+        net.minecraft.client.resources.model.sprite.Material matStage1 = new net.minecraft.client.resources.model.sprite.Material(texStage1, false);
+
+// 3. Zwei separate Kreuz-Modelle generieren mit der korrekten NeoForge 26.2 Signatur!
+        net.minecraft.resources.Identifier modelStage0 = net.minecraft.client.data.models.model.ModelTemplates.CROSS.createWithSuffix(
+                ModBlocks.BLOOD_DROP_BLOCK.get(), "_stage0",
+                new net.minecraft.client.data.models.model.TextureMapping().put(net.minecraft.client.data.models.model.TextureSlot.CROSS, matStage0),
+                blockModels.modelOutput
+        );
+
+        net.minecraft.resources.Identifier modelStage1 = net.minecraft.client.data.models.model.ModelTemplates.CROSS.createWithSuffix(
+                ModBlocks.BLOOD_DROP_BLOCK.get(), "_stage1",
+                new net.minecraft.client.data.models.model.TextureMapping().put(net.minecraft.client.data.models.model.TextureSlot.CROSS, matStage1),
+                blockModels.modelOutput
+        );
+
+// 4. Den Blockstate-Generator typsicher registrieren (Ohne rote Unterstreichungen)
+        net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerator customGenerator =
+                new net.minecraft.client.data.models.blockstates.BlockModelDefinitionGenerator() {
+                    @Override
+                    public Block block() {
+                        return ModBlocks.BLOOD_DROP_BLOCK.get();
+                    }
+
+                    // Der Rückgabetyp MUSS exakt BlockStateModelDispatcher heißen, wie in Zeile 55 deines Codes!
+                    @Override
+                    public net.minecraft.client.renderer.block.dispatch.BlockStateModelDispatcher create() {
+                        com.google.gson.JsonObject variants = new com.google.gson.JsonObject();
+
+                        com.google.gson.JsonObject age0 = new com.google.gson.JsonObject();
+                        age0.addProperty("model", modelStage0.toString());
+                        variants.add("age=0", age0);
+
+                        com.google.gson.JsonObject age1 = new com.google.gson.JsonObject();
+                        age1.addProperty("model", modelStage1.toString());
+                        variants.add("age=1", age1);
+
+                        com.google.gson.JsonObject root = new com.google.gson.JsonObject();
+                        root.add("variants", variants);
+
+                        // Verwandelt das rohe JSON über den offiziellen Minecraft-Codec in das verlangte Objekt
+                        return net.minecraft.client.renderer.block.dispatch.BlockStateModelDispatcher.CODEC
+                                .parse(com.mojang.serialization.JsonOps.INSTANCE, root)
+                                .getOrThrow();
+                    }
+                };
+
+// Das fertige, fehlerfreie Objekt an den Output-Collector übergeben
+        blockModels.blockStateOutput.accept(customGenerator);
+
+        itemModels.generateFlatItem(
+                de.drsnone.snonecraft.item.ModItems.BLOOD_DROP_ITEM.get(),
+                net.minecraft.client.data.models.model.ModelTemplates.FLAT_ITEM
+        );
+
         for (DyeColor color : DyeColor.values()) {
             Block lamp = ModBlocks.RP_LAMPS.get(color).get();
 
@@ -373,11 +435,10 @@ public class ModModelProvider extends ModelProvider {
             blockModels.registerSimpleItemModel(invertedLamp, modelOnLoc);
 
 
-
-
-
-
         }
+
+
+
 
         blockModels.family(ModBlocks.HEMP_BLOCK.get())
                 .stairs(ModBlocks.HEMP_STAIRS.get())

@@ -133,6 +133,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.VAMPIRE_PUMPKIN_MUFFIN);
                         output.accept(ModItems.VAMPIRE_PUMPKIN_SOUP);
                         output.accept(ModItems.VAMPIRE_PUMPKIN_SEEDS);
+                        output.accept(ModItems.BLOOD_DROP_ITEM);
 
                         output.accept(ModItems.VAMPIRE_BOAT);
                         output.accept(ModItems.VAMPIRE_CHEST_BOAT);

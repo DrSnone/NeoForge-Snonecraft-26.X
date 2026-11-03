@@ -223,6 +223,8 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.VAMPIRE_TRAPDOOR.get());
         add(ModBlocks.VAMPIRE_DOOR.get(), this::createDoorTable);
 
+        this.add(ModBlocks.BLOOD_DROP_BLOCK.get(), this.createSingleItemTable(de.drsnone.snonecraft.item.ModItems.BLOOD_DROP_ITEM.get()));
+
         this.dropSelf(ModBlocks.VAMPIRE_PUMPKIN.get());
         this.dropSelf(ModBlocks.CARVED_VAMPIRE_PUMPKIN.get());
 

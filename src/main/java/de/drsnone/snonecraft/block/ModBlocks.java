@@ -449,12 +449,42 @@ public class ModBlocks {
     public static final DeferredBlock<Block> VAMPIRE_LEAVES = registerBlock("vampire_leaves",
             properties -> new UntintedParticleLeavesBlock(0f, ParticleTypes.CHERRY_LEAVES,
                     properties.mapColor(MapColor.PLANT).strength(0.2F)
-                            .randomTicks().sound(SoundType.CHERRY_LEAVES)
+                            .randomTicks()
+                            .sound(SoundType.CHERRY_LEAVES)
                             .noOcclusion().isValidSpawn(Blocks::ocelotOrParrot)
                             .isSuffocating((state, level, pos) -> false)
                             .isViewBlocking((state, level, pos) -> false)
                             .ignitedByLava().pushReaction(PushReaction.DESTROY)
                             .isRedstoneConductor((state, level, pos) -> false)) {
+
+                @Override
+                public boolean isRandomlyTicking(BlockState state) {
+                    return true;
+                }
+
+                @Override
+                public void randomTick(BlockState state, net.minecraft.server.level.ServerLevel level, BlockPos pos, net.minecraft.util.RandomSource random) {
+                    BlockPos belowPos = pos.below();
+
+                    // Chance auf 1 von 120 Ticks erhöht (reduziert die Menge an Tropfen deutlich)
+                    if (random.nextInt(120) == 0) {
+                        if (level.isStateAtPosition(belowPos, BlockState::isAir)) {
+                            BlockState defaultState = ModBlocks.BLOOD_DROP_BLOCK.get().defaultBlockState();
+
+                            BlockState dropState = defaultState.hasProperty(de.drsnone.snonecraft.block.custom.BloodDropBlock.AGE)
+                                    ? defaultState.setValue(de.drsnone.snonecraft.block.custom.BloodDropBlock.AGE, 0)
+                                    : defaultState;
+
+                            level.setBlock(belowPos, dropState, 3);
+                        }
+                    }
+
+                    if (state.hasProperty(net.minecraft.world.level.block.LeavesBlock.PERSISTENT) &&
+                            !state.getValue(net.minecraft.world.level.block.LeavesBlock.PERSISTENT)) {
+                        super.randomTick(state, level, pos, random);
+                    }
+                }
+
                 @Override
                 public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
                     return true;
@@ -505,6 +535,13 @@ public class ModBlocks {
     public static final DeferredBlock<Block> VAMPIRE_TRAPDOOR = registerBlock("vampire_trapdoor",
             properties -> new TrapDoorBlock(BlockSetType.ACACIA, properties.strength(2f)
                     .requiresCorrectToolForDrops().noOcclusion().isValidSpawn(Blocks::never)));
+
+    public static final DeferredBlock<Block> BLOOD_DROP_BLOCK = registerBlock("blood_drop_block",
+            properties -> new de.drsnone.snonecraft.block.custom.BloodDropBlock(properties
+                    .noCollision()
+                    .randomTicks()
+                    .instabreak()
+                    .sound(net.minecraft.world.level.block.SoundType.SPORE_BLOSSOM)));
 
     // ==========================================
     // 1. DIE GRUNDBLÖCKE REGISTRIEREN
