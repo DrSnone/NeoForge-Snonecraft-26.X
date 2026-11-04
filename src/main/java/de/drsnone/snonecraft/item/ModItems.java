@@ -51,6 +51,11 @@ public class ModItems {
     public static final DeferredItem<Item> RAW_MARBERITH =
             ITEMS.registerSimpleItem("raw_marberith", properties -> properties);
 
+    public static final DeferredItem<Item> BLOODIRON_BAR =
+            ITEMS.registerSimpleItem("bloodiron_bar", properties -> properties);
+    public static final DeferredItem<Item> RAW_BLOODIRON =
+            ITEMS.registerSimpleItem("raw_bloodiron", properties -> properties);
+
     public static final DeferredItem<Item> HEMP =
             ITEMS.registerSimpleItem("hemp", properties -> properties);
 

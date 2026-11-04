@@ -51,6 +51,8 @@ public class ModRecipeProvider extends RecipeProvider {
 
         List<ItemLike> BAT_SMELTABLES = List.of(ModItems.RAW_BAT_PATTY);
 
+        List<ItemLike> BLOOD_SMELTABLES = List.of(ModItems.RAW_BLOODIRON);
+
         oreSmelting(SNONIUM_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.BLOCKS, ModItems.SNONIUM_INGOT.get(), 0.25f, 200, "snonium_ingot");
         oreBlasting(SNONIUM_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.BLOCKS, ModItems.SNONIUM_INGOT.get(), 0.25f, 100, "snonium_ingot");
 
@@ -74,6 +76,9 @@ public class ModRecipeProvider extends RecipeProvider {
         oreSmelting(HEMP_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.BLOCKS, ModItems.HEMP_CLUMP.get(), 0.25f, 200, "hemp_clump");
 
         oreSmelting(BAT_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.FOOD, ModItems.GRILLED_BAT_PATTY.get(), 0.25f, 200, "grilled_bat_patty");
+
+        oreSmelting(BLOOD_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.BLOCKS, ModItems.BLOODIRON_BAR.get(), 0.25f, 200, "bloodiron_bar");
+        oreBlasting(BLOOD_SMELTABLES, RecipeCategory.MISC, CookingBookCategory.BLOCKS, ModItems.BLOODIRON_BAR.get(), 0.25f, 100, "bloodiron_bar");
 
 
         //SNONIUM RECIPES
@@ -761,6 +766,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("A A")
                 .define('A', ModItems.BAT_LEATHER.get())
                 .unlockedBy("has_bat_leather", has(ModItems.BAT_LEATHER.get()))
+                .save(output);
+
+
+        //BLOOD RECIPES
+        shapeless(RecipeCategory.MISC, ModItems.RAW_BLOODIRON.get())
+                .requires(ModItems.BLOOD_DROP_ITEM)
+                .requires(Items.RAW_IRON)
+                .unlockedBy("has_blood_drop_item", has(ModItems.BLOOD_DROP_ITEM))
                 .save(output);
 
 

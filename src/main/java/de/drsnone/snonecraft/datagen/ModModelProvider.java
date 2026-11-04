@@ -48,6 +48,8 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.RAW_AMBER.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.MARBERITH.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.RAW_MARBERITH.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.RAW_BLOODIRON.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.BLOODIRON_BAR.get(), ModelTemplates.FLAT_ITEM);
 
         itemModels.generateFlatItem(ModItems.PICKLE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.ICE_LETTUCE.get(), ModelTemplates.FLAT_ITEM);
