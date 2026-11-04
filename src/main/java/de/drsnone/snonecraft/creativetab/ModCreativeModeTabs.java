@@ -136,6 +136,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BLOOD_DROP_ITEM);
                         output.accept(ModItems.RAW_BLOODIRON);
                         output.accept(ModItems.BLOODIRON_BAR);
+                        output.accept(ModItems.VAMPIRE_SWORD);
 
                         output.accept(ModItems.VAMPIRE_BOAT);
                         output.accept(ModItems.VAMPIRE_CHEST_BOAT);

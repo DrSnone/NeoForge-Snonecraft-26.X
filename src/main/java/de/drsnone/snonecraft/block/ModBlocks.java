@@ -467,7 +467,7 @@ public class ModBlocks {
                     BlockPos belowPos = pos.below();
 
                     // Chance auf 1 von 120 Ticks erhöht (reduziert die Menge an Tropfen deutlich)
-                    if (random.nextInt(120) == 0) {
+                    if (random.nextInt(250) == 0) {
                         if (level.isStateAtPosition(belowPos, BlockState::isAir)) {
                             BlockState defaultState = ModBlocks.BLOOD_DROP_BLOCK.get().defaultBlockState();
 

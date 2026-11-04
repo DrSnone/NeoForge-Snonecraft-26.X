@@ -776,6 +776,15 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_blood_drop_item", has(ModItems.BLOOD_DROP_ITEM))
                 .save(output);
 
+        shaped(RecipeCategory.MISC, ModItems.VAMPIRE_SWORD.get())
+                .pattern("A")
+                .pattern("A")
+                .pattern("I")
+                .define('A', ModItems.BLOODIRON_BAR.get())
+                .define('I', Items.STICK)
+                .unlockedBy("has_bloodiron_bar", has(ModItems.BLOODIRON_BAR.get()))
+                .save(output);
+
 
         //DIVERSE
         shaped(RecipeCategory.MISC, ModBlocks.SMALL_STONE_BRICKS.get(), 4)

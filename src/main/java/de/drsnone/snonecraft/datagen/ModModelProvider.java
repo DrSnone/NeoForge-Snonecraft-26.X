@@ -114,6 +114,8 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.SAPPHIRE_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.SAPPHIRE_HAMMER.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
 
+        itemModels.generateFlatItem(ModItems.VAMPIRE_SWORD.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
+
 
         itemModels.generateTrimmableItem(ModItems.SNONIUM_HELMET.get(), ModArmorMaterials.SNONIUM_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
         itemModels.generateTrimmableItem(ModItems.SNONIUM_CHESTPLATE.get(), ModArmorMaterials.SNONIUM_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);

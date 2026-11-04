@@ -26,7 +26,7 @@ public class ModEquipmentAsset implements DataProvider {
 
     private static void bootstrap(BiConsumer<ResourceKey<EquipmentAsset>, EquipmentClientInfo> output) {
         output.accept(ModArmorMaterials.SNONIUM_KEY, EquipmentClientInfo.builder()
-                .addHumanoidLayers(Identifier.fromNamespaceAndPath(Snonecraft.MOD_ID, "zircon"), false)
+                .addHumanoidLayers(Identifier.fromNamespaceAndPath(Snonecraft.MOD_ID, "snonium"), false)
                 .addLayers(EquipmentClientInfo.LayerType.HUMANOID,
                         new EquipmentClientInfo.Layer(Identifier.fromNamespaceAndPath(Snonecraft.MOD_ID, "snonium"))).build());
 // second one

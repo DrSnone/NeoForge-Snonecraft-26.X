@@ -62,6 +62,9 @@ public class ModItems {
     public static final DeferredItem<Item> HEMP_CLUMP =
             ITEMS.registerSimpleItem("hemp_clump", properties -> properties);
 
+    public static final DeferredItem<Item> VAMPIRE_SWORD = ITEMS.registerItem("vampire_sword",
+            properties -> new Item(properties.sword(ModToolMaterials.BLOODIRON, 4, -2.4f)));
+
 
 
     //SNONIUM TOOLS

@@ -26,6 +26,7 @@ public class ModTags {
         public static final TagKey<Item> SAPPHIRE_REPAIRABLES = createTag("sapphire_repairables");
         public static final TagKey<Item> MARBERITH_REPAIRABLES = createTag("marberith_repairables");
         public static final TagKey<Item> BAT_REPAIRABLES = createTag("bat_repairables");
+        public static final TagKey<Item> BLOODIRON_REPAIRABLES = createTag("bloodiron_repairables");
 
         public static final TagKey<Item> VAMPIRE_LOGS = createTag("vampire_logs");
 

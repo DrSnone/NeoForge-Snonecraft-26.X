@@ -34,9 +34,11 @@ public class ModItemTagProvider extends net.neoforged.neoforge.common.data.ItemT
                 .add(ModItems.getRK(ModItems.SAPPHIRE.get()));
         tag(ModTags.Items.RUBY_REPAIRABLES)
                 .add(ModItems.getRK(ModItems.RUBY.get()));
+        tag(ModTags.Items.BLOODIRON_REPAIRABLES)
+                .add(ModItems.getRK(ModItems.BLOODIRON_BAR.get()));
 
         tag(ItemTags.SWORDS).add(ModItems.getRK(ModItems.SNONIUM_SWORD.get())).add(ModItems.getRK(ModItems.SAPPHIRE_SWORD.get())).add(ModItems.getRK(ModItems.DIOPSID_SWORD.get())).add(ModItems.getRK(ModItems.MARBERITH_SWORD.get()))
-                .add(ModItems.getRK(ModItems.RUBY_SWORD.get()));
+                .add(ModItems.getRK(ModItems.RUBY_SWORD.get())).add(ModItems.getRK(ModItems.VAMPIRE_SWORD.get()));
         tag(ItemTags.PICKAXES).add(ModItems.getRK(ModItems.SNONIUM_PICKAXE.get())).add(ModItems.getRK(ModItems.SNONIUM_HAMMER.get())).add(ModItems.getRK(ModItems.MARBERITH_PICKAXE.get()))
                 .add(ModItems.getRK(ModItems.SAPPHIRE_PICKAXE.get())).add(ModItems.getRK(ModItems.SAPPHIRE_HAMMER.get())).add(ModItems.getRK(ModItems.DIOPSID_PICKAXE.get()))
                 .add(ModItems.getRK(ModItems.DIOPSID_HAMMER.get())).add(ModItems.getRK(ModItems.RUBY_PICKAXE.get())).add(ModItems.getRK(ModItems.RUBY_HAMMER.get()));
