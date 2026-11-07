@@ -67,6 +67,8 @@ public class ModItems {
 
 
 
+
+
     //SNONIUM TOOLS
     public static final DeferredItem<Item> SNONIUM_SWORD = ITEMS.registerItem("snonium_sword",
             properties -> new Item(properties.sword(ModToolMaterials.SNONIUM, 4, -2.4f)));

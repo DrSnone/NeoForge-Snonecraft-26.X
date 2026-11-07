@@ -808,7 +808,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         //White Marble Recipes
-        shaped(RecipeCategory.MISC, ModBlocks.WHITE_POLISHED_MARBLE.get())
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_POLISHED_MARBLE.get(), 4)
                 .pattern("SS")
                 .pattern("SS")
                 .define('S', ModBlocks.WHITE_MARBLE.get())
@@ -828,7 +828,7 @@ public class ModRecipeProvider extends RecipeProvider {
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_WALL.get(), ModBlocks.WHITE_MARBLE.get());
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_POLISHED_MARBLE_WALL.get(), ModBlocks.WHITE_POLISHED_MARBLE.get());
 
-        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_BRICK.get())
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_BRICK.get(), 4)
                 .pattern("SS")
                 .pattern("SS")
                 .define('S', ModBlocks.WHITE_POLISHED_MARBLE.get())
@@ -841,7 +841,7 @@ public class ModRecipeProvider extends RecipeProvider {
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_SLAB.get(), ModBlocks.WHITE_MARBLE_BRICK);
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_WALL.get(), ModBlocks.WHITE_MARBLE_BRICK.get());
 
-        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_BRICK_BIG.get())
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_BRICK_BIG.get(), 4)
                 .pattern("SS")
                 .pattern("SS")
                 .define('S', ModBlocks.WHITE_MARBLE_FANCY.get())
@@ -854,7 +854,7 @@ public class ModRecipeProvider extends RecipeProvider {
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_BIG_SLAB.get(), ModBlocks.WHITE_MARBLE_BRICK_BIG);
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_BIG_WALL.get(), ModBlocks.WHITE_MARBLE_BRICK_BIG.get());
 
-        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_BRICK_SMALL.get())
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_BRICK_SMALL.get(), 4)
                 .pattern("SS")
                 .pattern("SS")
                 .define('S', ModBlocks.WHITE_MARBLE_BRICK.get())
@@ -867,7 +867,7 @@ public class ModRecipeProvider extends RecipeProvider {
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_SMALL_SLAB.get(), ModBlocks.WHITE_MARBLE_BRICK_SMALL);
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_BRICK_SMALL_WALL.get(), ModBlocks.WHITE_MARBLE_BRICK_SMALL.get());
 
-        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_FANCY.get())
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_FANCY.get(), 4)
                 .pattern("SS")
                 .pattern("SS")
                 .define('S', ModBlocks.WHITE_MARBLE_BRICK_SMALL.get())
@@ -880,7 +880,7 @@ public class ModRecipeProvider extends RecipeProvider {
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_FANCY_SLAB.get(), ModBlocks.WHITE_MARBLE_FANCY);
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.WHITE_MARBLE_FANCY_WALL.get(), ModBlocks.WHITE_MARBLE_FANCY.get());
 
-        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_MOSAIK.get())
+        shaped(RecipeCategory.MISC, ModBlocks.WHITE_MARBLE_MOSAIK.get(), 4)
                 .pattern("AB")
                 .pattern("BA")
                 .define('A', ModBlocks.WHITE_POLISHED_MARBLE.get())
@@ -916,7 +916,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
 
 
-        shaped(RecipeCategory.MISC, ModBlocks.BLACK_MARBLE_BRICK.get())
+        shaped(RecipeCategory.MISC, ModBlocks.BLACK_MARBLE_BRICK.get(), 4)
                 .pattern("SS")
                 .pattern("SS")
                 .define('S', ModBlocks.BLACK_POLISHED_MARBLE.get())

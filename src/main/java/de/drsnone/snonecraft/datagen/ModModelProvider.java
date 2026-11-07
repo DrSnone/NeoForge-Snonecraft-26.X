@@ -151,9 +151,24 @@ public class ModModelProvider extends ModelProvider {
         itemModels.generateFlatItem(ModItems.VAMPIRE_BOAT.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.VAMPIRE_CHEST_BOAT.get(), ModelTemplates.FLAT_ITEM);
 
-        blockModels.registerSimpleItemModel(ModBlocks.VAMPIRE_PUMPKIN.get(), net.minecraft.client.data.models.model.ModelLocationUtils.getModelLocation(ModBlocks.VAMPIRE_PUMPKIN.get()));
-        blockModels.registerSimpleItemModel(ModBlocks.CARVED_VAMPIRE_PUMPKIN.get(),
-                net.minecraft.client.data.models.model.ModelLocationUtils.getModelLocation(ModBlocks.CARVED_VAMPIRE_PUMPKIN.get()));
+        try {
+            // Holt den Pfad zu deinem Mod-Ressourcenordner
+            java.nio.file.Path assetDir = java.nio.file.Paths.get("src/main/resources/assets/snonecraft/models/item");
+            java.nio.file.Files.createDirectories(assetDir);
+
+            // 1. Schreibt die Zuweisung für den normalen 3D-Kürbis
+            String jsonPumpkin = "{\"model\":\"snonecraft:block/vampire_pumpkin_bottom_top\"}";
+            java.nio.file.Files.writeString(assetDir.resolve("vampire_pumpkin.json"), jsonPumpkin);
+
+            // 2. Schreibt die Zuweisung für den geschnitzten 3D-Kürbis
+            String jsonCarved = "{\"model\":\"snonecraft:block/carved_vampire_pumpkin_orientable\"}";
+            java.nio.file.Files.writeString(assetDir.resolve("carved_vampire_pumpkin.json"), jsonCarved);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 
 
 
@@ -305,12 +320,23 @@ public class ModModelProvider extends ModelProvider {
                 .door(ModBlocks.VAMPIRE_DOOR.get())
                 .trapdoor(ModBlocks.VAMPIRE_TRAPDOOR.get());
 
+
+
+
         blockModels.woodProvider(ModBlocks.VAMPIRE_LOG.get()).logWithHorizontal(ModBlocks.VAMPIRE_LOG.get()).wood(ModBlocks.VAMPIRE_WOOD.get());
         blockModels.woodProvider(ModBlocks.STRIPPED_VAMPIRE_LOG.get()).logWithHorizontal(ModBlocks.STRIPPED_VAMPIRE_LOG.get()).wood(ModBlocks.STRIPPED_VAMPIRE_WOOD.get());
 
 
         blockModels.createTintedLeaves(ModBlocks.VAMPIRE_LEAVES.get(), TexturedModel.LEAVES, -12012255);
         blockModels.createPlant(ModBlocks.VAMPIRE_SAPLING.get(), ModBlocks.POTTED_VAMPIRE_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
+
+
+
+
+
+
+
+
 
         /* BLOOD DROP BLOCK DATA GENERATION */
 

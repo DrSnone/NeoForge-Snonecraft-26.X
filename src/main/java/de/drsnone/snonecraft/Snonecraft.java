@@ -1,6 +1,7 @@
 package de.drsnone.snonecraft;
 
 import de.drsnone.snonecraft.block.ModBlocks;
+
 import de.drsnone.snonecraft.creativetab.ModCreativeModeTabs;
 import de.drsnone.snonecraft.entity.ModEntities;
 import de.drsnone.snonecraft.item.ModItems;
@@ -8,6 +9,9 @@ import de.drsnone.snonecraft.loot.ModLootModifiers;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.FlowerPotBlock;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -46,10 +50,10 @@ public class Snonecraft {
 
         ModItems.register(modEventBus);
 
+
+
         ModCreativeModeTabs.register(modEventBus);
-
         ModLootModifiers.register(modEventBus);
-
         ModEntities.register(modEventBus);
 
 
@@ -116,4 +120,10 @@ public class Snonecraft {
     public void onServerStarting(ServerStartingEvent event) {
 
     }
+
+    // =========================================================================
+    // SAUBERE CLIENT-REGISTRIERUNG FÜR NEOFORGE (Verhindert Server-Abstürze)
+    // =========================================================================
+
+
 }

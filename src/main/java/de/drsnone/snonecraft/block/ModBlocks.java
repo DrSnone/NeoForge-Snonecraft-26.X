@@ -26,6 +26,7 @@ import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.EnumMap;
@@ -426,6 +427,8 @@ public class ModBlocks {
 
 
 
+
+
     public static final DeferredBlock<Block> VAMPIRE_PLANKS = registerBlock("vampire_planks",
             properties -> new Block(properties.sound(SoundType.WOOD).strength(2f).ignitedByLava()) {
                 @Override
@@ -627,22 +630,8 @@ public class ModBlocks {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static ResourceKey<Block> getRK(Block block) {
-        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+        return (ResourceKey)BuiltInRegistries.BLOCK.getResourceKey(block).get();
     }
 
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> function) {
@@ -652,10 +641,11 @@ public class ModBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
-        ModItems.ITEMS.registerItem(name, properties -> new BlockItem(block.get(), properties.useBlockDescriptionPrefix()));
+        ModItems.ITEMS.registerItem(name, (properties) -> new BlockItem((Block)block.get(), properties.useBlockDescriptionPrefix()));
     }
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
     }
 }
+
