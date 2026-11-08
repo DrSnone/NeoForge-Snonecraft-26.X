@@ -306,6 +306,19 @@ public class ModBlocks {
     public static final DeferredBlock<Block> SANDSTONE_BRICK_WALL = registerBlock("sandstone_brick_wall",
             properties -> new WallBlock(properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn()));
 
+    public static final DeferredBlock<Block> BLUE_TILE = registerBlock("blue_tile",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> GREEN_TILE = registerBlock("green_tile",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> RED_TILE = registerBlock("red_tile",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> YELLOW_TILE = registerBlock("yellow_tile",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
 
     //ORE BLOCKS
     public static final DeferredBlock<Block> SNONIUM_ORE = registerBlock("snonium_ore",

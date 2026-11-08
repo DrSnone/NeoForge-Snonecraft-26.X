@@ -283,6 +283,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SANDSTONE_BRICK_SLAB);
                         output.accept(ModBlocks.SANDSTONE_BRICK_WALL);
 
+                        output.accept(ModBlocks.BLUE_TILE);
+                        output.accept(ModBlocks.GREEN_TILE);
+                        output.accept(ModBlocks.RED_TILE);
+                        output.accept(ModBlocks.YELLOW_TILE);
+
 
                         output.accept(ModBlocks.VAMPIRE_LOG);
                         output.accept(ModBlocks.VAMPIRE_WOOD);

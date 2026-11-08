@@ -204,6 +204,11 @@ public class ModModelProvider extends ModelProvider {
         blockModels.createTrivialCube(ModBlocks.WHITE_MARBLE_ENGRAVED.get());
         blockModels.createTrivialCube(ModBlocks.WHITE_MARBLE_RUNED.get());
 
+        blockModels.createTrivialCube(ModBlocks.BLUE_TILE.get());
+        blockModels.createTrivialCube(ModBlocks.GREEN_TILE.get());
+        blockModels.createTrivialCube(ModBlocks.RED_TILE.get());
+        blockModels.createTrivialCube(ModBlocks.YELLOW_TILE.get());
+
         blockModels.family(ModBlocks.AMBER_BLOCK.get())
                 .stairs(ModBlocks.AMBER_BLOCK_STAIRS.get())
                 .slab(ModBlocks.AMBER_BLOCK_SLAB.get());

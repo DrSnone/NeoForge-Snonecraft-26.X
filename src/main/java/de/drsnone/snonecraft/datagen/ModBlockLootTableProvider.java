@@ -223,6 +223,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.VAMPIRE_TRAPDOOR.get());
         add(ModBlocks.VAMPIRE_DOOR.get(), this::createDoorTable);
 
+        dropSelf(ModBlocks.BLUE_TILE.get());
+        dropSelf(ModBlocks.RED_TILE.get());
+        dropSelf(ModBlocks.YELLOW_TILE.get());
+        dropSelf(ModBlocks.GREEN_TILE.get());
+
 
 
         this.add(ModBlocks.BLOOD_DROP_BLOCK.get(), this.createSingleItemTable(de.drsnone.snonecraft.item.ModItems.BLOOD_DROP_ITEM.get()));

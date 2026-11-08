@@ -1082,6 +1082,46 @@ public class ModRecipeProvider extends RecipeProvider {
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.SANDSTONE_BRICK_WALL.get(), ModBlocks.SANDSTONE_BRICK.get());
 
 
+        //TILE RECIPES
+        shaped(RecipeCategory.MISC, ModBlocks.BLUE_TILE.get(), 8)
+                .pattern("CCC")
+                .pattern("CRC")
+                .pattern("CCC")
+                .define('C', Blocks.CLAY)
+                .define('R', ModItems.MARBERITH)
+                .unlockedBy(getHasName(Blocks.CLAY), has(ModItems.MARBERITH))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, ModBlocks.GREEN_TILE.get(), 8)
+                .pattern("CCC")
+                .pattern("CRC")
+                .pattern("CCC")
+                .define('C', Blocks.CLAY)
+                .define('R', ModItems.DIOPSID)
+                .unlockedBy(getHasName(Blocks.CLAY), has(ModItems.DIOPSID))
+                .save(output);
+
+
+
+        shaped(RecipeCategory.MISC, ModBlocks.RED_TILE.get(), 8)
+                .pattern("CCC")
+                .pattern("CRC")
+                .pattern("CCC")
+                .define('C', Blocks.CLAY)
+                .define('R', ModItems.RUBY)
+                .unlockedBy(getHasName(Blocks.CLAY), has(ModItems.RUBY))
+                .save(output);
+
+        shaped(RecipeCategory.MISC, ModBlocks.YELLOW_TILE.get(), 8)
+                .pattern("CCC")
+                .pattern("CRC")
+                .pattern("CCC")
+                .define('C', Blocks.CLAY)
+                .define('R', ModItems.AMBER)
+                .unlockedBy(getHasName(Blocks.CLAY), has(ModItems.AMBER))
+                .save(output);
+
+
         //VAMPIRE RECIPES
         woodFromLogs(ModBlocks.VAMPIRE_WOOD, ModBlocks.VAMPIRE_LOG);
         woodFromLogs(ModBlocks.STRIPPED_VAMPIRE_WOOD, ModBlocks.STRIPPED_VAMPIRE_LOG);
