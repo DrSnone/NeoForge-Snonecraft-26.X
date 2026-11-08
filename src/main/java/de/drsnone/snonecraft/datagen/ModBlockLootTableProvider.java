@@ -228,6 +228,15 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.YELLOW_TILE.get());
         dropSelf(ModBlocks.GREEN_TILE.get());
 
+        dropSelf(ModBlocks.BLOODSTONE.get());
+        dropSelf(ModBlocks.BLOODSTONE_STAIRS.get());
+        add(ModBlocks.BLOODSTONE_SLAB.get(), this::createSlabItemTable);
+        dropSelf(ModBlocks.BLOODSTONE_PRESSURE_PLATE.get());
+        dropSelf(ModBlocks.BLOODSTONEBRICK.get());
+        dropSelf(ModBlocks.BLOODSTONEBRICK_STAIRS.get());
+        add(ModBlocks.BLOODSTONEBRICK_SLAB.get(), this::createSlabItemTable);
+        dropSelf(ModBlocks.BLOODSTONESOCKET.get());
+
 
 
         this.add(ModBlocks.BLOOD_DROP_BLOCK.get(), this.createSingleItemTable(de.drsnone.snonecraft.item.ModItems.BLOOD_DROP_ITEM.get()));

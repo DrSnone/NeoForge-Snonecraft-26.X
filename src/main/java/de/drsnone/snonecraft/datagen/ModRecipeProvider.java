@@ -1067,6 +1067,41 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(output);
 
 
+        //BLOODSTONE RECIPES
+        shaped(RecipeCategory.MISC, ModBlocks.BLOODSTONE.get(),4)
+                .pattern("BBB")
+                .pattern("BBB")
+                .pattern("BBB")
+                .define('B', ModItems.BLOOD_DROP_ITEM.get())
+                .unlockedBy("has_blood_drop_item", has(ModItems.BLOOD_DROP_ITEM.get()))
+                .save(output);
+
+        stairBuilder(ModBlocks.BLOODSTONE_STAIRS.get(), Ingredient.of(ModBlocks.BLOODSTONE.get())).group("bloodstone")
+                .unlockedBy("has_bloodstone", has(ModBlocks.BLOODSTONE.get()))
+                .save(output);
+        slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLOODSTONE_SLAB.get(), ModBlocks.BLOODSTONE.get());
+        pressurePlate(ModBlocks.BLOODSTONE_PRESSURE_PLATE.get(), ModBlocks.BLOODSTONE.get());
+
+        shaped(RecipeCategory.MISC, ModBlocks.BLOODSTONEBRICK.get(), 4)
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', ModBlocks.BLOODSTONE)
+                .unlockedBy(getHasName(ModBlocks.BLOODSTONE), has(ModBlocks.BLOODSTONE))
+                .save(output);
+
+        stairBuilder(ModBlocks.BLOODSTONEBRICK_STAIRS.get(), Ingredient.of(ModBlocks.BLOODSTONEBRICK.get())).group("bloodstonebrick")
+                .unlockedBy("has_bloodstonebrick", has(ModBlocks.BLOODSTONEBRICK.get()))
+                .save(output);
+        slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLOODSTONEBRICK_SLAB.get(), ModBlocks.BLOODSTONEBRICK.get());
+
+        shaped(RecipeCategory.MISC, ModBlocks.BLOODSTONESOCKET.get(), 4)
+                .pattern("SS")
+                .pattern("SS")
+                .define('S', ModBlocks.BLOODSTONEBRICK)
+                .unlockedBy(getHasName(ModBlocks.BLOODSTONEBRICK), has(ModBlocks.BLOODSTONEBRICK))
+                .save(output);
+
+
         //SANDSTONE BRICK RECIPES
         shaped(RecipeCategory.MISC, ModBlocks.SANDSTONE_BRICK.get())
                 .pattern("SS")

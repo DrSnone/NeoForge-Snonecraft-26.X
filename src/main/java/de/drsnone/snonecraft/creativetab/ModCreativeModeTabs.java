@@ -288,6 +288,15 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.RED_TILE);
                         output.accept(ModBlocks.YELLOW_TILE);
 
+                        output.accept(ModBlocks.BLOODSTONE);
+                        output.accept(ModBlocks.BLOODSTONE_STAIRS);
+                        output.accept(ModBlocks.BLOODSTONE_SLAB);
+                        output.accept(ModBlocks.BLOODSTONE_PRESSURE_PLATE);
+                        output.accept(ModBlocks.BLOODSTONEBRICK);
+                        output.accept(ModBlocks.BLOODSTONEBRICK_STAIRS);
+                        output.accept(ModBlocks.BLOODSTONEBRICK_SLAB);
+                        output.accept(ModBlocks.BLOODSTONESOCKET);
+
 
                         output.accept(ModBlocks.VAMPIRE_LOG);
                         output.accept(ModBlocks.VAMPIRE_WOOD);

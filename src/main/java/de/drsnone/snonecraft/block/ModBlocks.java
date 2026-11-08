@@ -320,6 +320,33 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
 
+    //BLOODSTONE BLOCKS
+    public static final DeferredBlock<Block> BLOODSTONE = registerBlock("bloodstone",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> BLOODSTONE_STAIRS = registerBlock("bloodstone_stairs",
+            properties -> new StairBlock(ModBlocks.BLOODSTONE.get().defaultBlockState(),
+                    properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOODSTONE_SLAB = registerBlock("bloodstone_slab",
+            properties -> new SlabBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOODSTONE_PRESSURE_PLATE = registerBlock("bloodstone_pressure_plate",
+            properties -> new PressurePlateBlock(BlockSetType.IRON,
+                    properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn().noCollision().pushReaction(PushReaction.DESTROY)));
+
+    public static final DeferredBlock<Block> BLOODSTONEBRICK = registerBlock("bloodstonebrick",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final DeferredBlock<Block> BLOODSTONEBRICK_STAIRS = registerBlock("bloodstonebrick_stairs",
+            properties -> new StairBlock(ModBlocks.BLOODSTONEBRICK.get().defaultBlockState(),
+                    properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOODSTONEBRICK_SLAB = registerBlock("bloodstonebrick_slab",
+            properties -> new SlabBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> BLOODSTONESOCKET = registerBlock("bloodstonesocket",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
+
     //ORE BLOCKS
     public static final DeferredBlock<Block> SNONIUM_ORE = registerBlock("snonium_ore",
             properties -> new DropExperienceBlock(UniformInt.of(2, 4),

@@ -105,7 +105,14 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_RUNED.get()))
                 .add(ModBlocks.getRK(ModBlocks.SANDSTONE_BRICK.get()))
                 .add(ModBlocks.getRK(ModBlocks.SANDSTONE_BRICK_STAIRS.get()))
-                .add(ModBlocks.getRK(ModBlocks.SANDSTONE_BRICK_SLAB.get()));
+                .add(ModBlocks.getRK(ModBlocks.SANDSTONE_BRICK_SLAB.get()))
+                .add(ModBlocks.getRK(ModBlocks.BLOODSTONE.get()))
+                .add(ModBlocks.getRK(ModBlocks.BLOODSTONE_STAIRS.get()))
+                .add(ModBlocks.getRK(ModBlocks.BLOODSTONE_SLAB.get()))
+                .add(ModBlocks.getRK(ModBlocks.BLOODSTONEBRICK.get()))
+                .add(ModBlocks.getRK(ModBlocks.BLOODSTONEBRICK_STAIRS.get()))
+                .add(ModBlocks.getRK(ModBlocks.BLOODSTONEBRICK_SLAB.get()))
+                .add(ModBlocks.getRK(ModBlocks.BLOODSTONESOCKET.get()));
 
 
 

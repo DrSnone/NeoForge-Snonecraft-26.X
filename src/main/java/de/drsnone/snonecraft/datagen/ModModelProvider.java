@@ -306,6 +306,17 @@ public class ModModelProvider extends ModelProvider {
                 .slab(ModBlocks.SANDSTONE_BRICK_SLAB.get())
                 .wall(ModBlocks.SANDSTONE_BRICK_WALL.get());
 
+        blockModels.family(ModBlocks.BLOODSTONE.get())
+                .stairs(ModBlocks.BLOODSTONE_STAIRS.get())
+                .slab(ModBlocks.BLOODSTONE_SLAB.get())
+                .pressurePlate(ModBlocks.BLOODSTONE_PRESSURE_PLATE.get());
+
+        blockModels.family(ModBlocks.BLOODSTONEBRICK.get())
+                .stairs(ModBlocks.BLOODSTONEBRICK_STAIRS.get())
+                .slab(ModBlocks.BLOODSTONEBRICK_SLAB.get());
+
+        blockModels.createTrivialCube(ModBlocks.BLOODSTONESOCKET.get());
+
         blockModels.createCropBlock(ModBlocks.PICKLE_CROP.get(), PickleCropBlock.AGE, 0, 1, 2, 3, 4, 5);
         blockModels.createCropBlock(ModBlocks.ICE_LETTUCE_CROP.get(), IceLettuceCropBlock.AGE, 0, 1, 2, 3, 4, 5);
         blockModels.createCropBlock(ModBlocks.MEAT_TOMATO_CROP.get(), MeatTomatoCropBlock.AGE, 0, 1, 2, 3, 4, 5);
