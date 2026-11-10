@@ -242,6 +242,26 @@
   "block.snonecraft.sandstone_brick_slab": "Sandstein Ziegel Stufe",
   "block.snonecraft.sandstone_brick_wall": "Sandstein Ziegel Mauer",
 
+  "block.snonecraft.blue_tile": "Blue Tile",
+  "block.snonecraft.green_tile": "Green Tile",
+  "block.snonecraft.red_tile": "Red Tile",
+  "block.snonecraft.yellow_tile": "Yellow Tile",
+
+  "block.snonecraft.bloodstone": "Blutstein",
+  "block.snonecraft.bloodstone_stairs": "Blutstein Treppe",
+  "block.snonecraft.bloodstone_slab": "Blutstein Stufe",
+  "block.snonecraft.bloodstone_pressure_plate": "Blutstein Druck Platte",
+  "block.snonecraft.bloodstone_button": "Blutstein Knopf",
+  "block.snonecraft.bloodstone_fence": "Blutstein Zaun",
+  "block.snonecraft.bloodstone_fence_gate": "Blutstein Zaun Tor",
+  "block.snonecraft.bloodstone_wall": "Blutstein Mauer",
+
+  "block.snonecraft.bloodstonebrick": "Blutstein Ziegel",
+  "block.snonecraft.bloodstonebrick_stairs": "Blutstein Ziegel Treppe",
+  "block.snonecraft.bloodstonebrick_slab": "Blutstein Ziegel Stufe",
+  "block.snonecraft.bloodstonesocket": "Blutstein Sockel",
+  "block.snonecraft.bloodstonebrick_wall": "Blutstein Ziegel Mauer",
+
   "block.snonecraft.hemp_block": "Hanf Block",
   "block.snonecraft.hemp_stairs": "Hanf Treppe",
   "block.snonecraft.hemp_slab": "Hanf Stufe",

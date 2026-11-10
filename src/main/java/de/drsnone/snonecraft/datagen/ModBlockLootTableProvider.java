@@ -232,10 +232,16 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.BLOODSTONE_STAIRS.get());
         add(ModBlocks.BLOODSTONE_SLAB.get(), this::createSlabItemTable);
         dropSelf(ModBlocks.BLOODSTONE_PRESSURE_PLATE.get());
+        dropSelf(ModBlocks.BLOODSTONE_BUTTON.get());
+        dropSelf(ModBlocks.BLOODSTONE_FENCE.get());
+        dropSelf(ModBlocks.BLOODSTONE_FENCE_GATE.get());
+        dropSelf(ModBlocks.BLOODSTONE_WALL.get());
+
         dropSelf(ModBlocks.BLOODSTONEBRICK.get());
         dropSelf(ModBlocks.BLOODSTONEBRICK_STAIRS.get());
         add(ModBlocks.BLOODSTONEBRICK_SLAB.get(), this::createSlabItemTable);
         dropSelf(ModBlocks.BLOODSTONESOCKET.get());
+        dropSelf(ModBlocks.BLOODSTONEBRICK_WALL.get());
 
 
 

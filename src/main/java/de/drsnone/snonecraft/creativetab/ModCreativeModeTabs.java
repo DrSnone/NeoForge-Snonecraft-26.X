@@ -292,9 +292,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BLOODSTONE_STAIRS);
                         output.accept(ModBlocks.BLOODSTONE_SLAB);
                         output.accept(ModBlocks.BLOODSTONE_PRESSURE_PLATE);
+                        output.accept(ModBlocks.BLOODSTONE_WALL);
+                        output.accept(ModBlocks.BLOODSTONE_FENCE);
+                        output.accept(ModBlocks.BLOODSTONE_FENCE_GATE);
+                        output.accept(ModBlocks.BLOODSTONE_BUTTON);
                         output.accept(ModBlocks.BLOODSTONEBRICK);
                         output.accept(ModBlocks.BLOODSTONEBRICK_STAIRS);
                         output.accept(ModBlocks.BLOODSTONEBRICK_SLAB);
+                        output.accept(ModBlocks.BLOODSTONEBRICK_WALL);
                         output.accept(ModBlocks.BLOODSTONESOCKET);
 
 

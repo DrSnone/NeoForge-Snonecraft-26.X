@@ -129,6 +129,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.FENCES).add(ModBlocks.getRK(ModBlocks.VAMPIRE_FENCE.get()));
         tag(BlockTags.FENCE_GATES).add(ModBlocks.getRK(ModBlocks.VAMPIRE_FENCE_GATE.get()));
 
+        tag(BlockTags.FENCES).add(ModBlocks.getRK(ModBlocks.BLOODSTONE_FENCE.get()));
+        tag(BlockTags.FENCE_GATES).add(ModBlocks.getRK(ModBlocks.BLOODSTONE_FENCE_GATE.get()));
+
         tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_WALL.get()));
         tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.WHITE_MARBLE_BRICK_BIG_WALL.get()));
         tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.WHITE_POLISHED_MARBLE_WALL.get()));
@@ -150,6 +153,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.SANDSTONE_BRICK_WALL.get()));
         tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.HEMP_WALL.get()));
+
+        tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.BLOODSTONE_WALL.get()));
+        tag(BlockTags.WALLS).add(ModBlocks.getRK(ModBlocks.BLOODSTONEBRICK_WALL.get()));
 
         tag(BlockItemTags.LOGS_THAT_BURN.block())
                 .add(ModBlocks.VAMPIRE_LOG.getKey())

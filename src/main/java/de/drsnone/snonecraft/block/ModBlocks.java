@@ -332,6 +332,15 @@ public class ModBlocks {
     public static final DeferredBlock<Block> BLOODSTONE_PRESSURE_PLATE = registerBlock("bloodstone_pressure_plate",
             properties -> new PressurePlateBlock(BlockSetType.IRON,
                     properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn().noCollision().pushReaction(PushReaction.DESTROY)));
+    public static final DeferredBlock<Block> BLOODSTONE_WALL = registerBlock("bloodstone_wall",
+            properties -> new WallBlock(properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn()));
+    public static final DeferredBlock<Block> BLOODSTONE_FENCE = registerBlock("bloodstone_fence",
+            properties -> new FenceBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOODSTONE_FENCE_GATE = registerBlock("bloodstone_fence_gate",
+            properties -> new FenceGateBlock(WoodType.ACACIA, properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOODSTONE_BUTTON = registerBlock("bloodstone_button",
+            properties -> new ButtonBlock(BlockSetType.IRON, 20,
+                    properties.strength(2f).requiresCorrectToolForDrops().noCollision().pushReaction(PushReaction.DESTROY)));
 
     public static final DeferredBlock<Block> BLOODSTONEBRICK = registerBlock("bloodstonebrick",
             properties -> new Block(properties.strength(4f)
@@ -341,6 +350,8 @@ public class ModBlocks {
                     properties.strength(2f).requiresCorrectToolForDrops()));
     public static final DeferredBlock<Block> BLOODSTONEBRICK_SLAB = registerBlock("bloodstonebrick_slab",
             properties -> new SlabBlock(properties.strength(2f).requiresCorrectToolForDrops()));
+    public static final DeferredBlock<Block> BLOODSTONEBRICK_WALL = registerBlock("bloodstonebrick_wall",
+            properties -> new WallBlock(properties.strength(2f).requiresCorrectToolForDrops().forceSolidOn()));
 
     public static final DeferredBlock<Block> BLOODSTONESOCKET = registerBlock("bloodstonesocket",
             properties -> new Block(properties.strength(4f)

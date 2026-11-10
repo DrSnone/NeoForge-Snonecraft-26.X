@@ -1082,6 +1082,22 @@ public class ModRecipeProvider extends RecipeProvider {
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLOODSTONE_SLAB.get(), ModBlocks.BLOODSTONE.get());
         pressurePlate(ModBlocks.BLOODSTONE_PRESSURE_PLATE.get(), ModBlocks.BLOODSTONE.get());
 
+        buttonBuilder(ModBlocks.BLOODSTONE_BUTTON.get(), Ingredient.of(ModBlocks.BLOODSTONE.get())).group("bloodstone")
+                .group("bloodstone")
+                .unlockedBy("has_bloodstone", has(ModBlocks.BLOODSTONE.get()))
+                .save(output);
+
+        fenceBuilder(ModBlocks.BLOODSTONE_FENCE.get(), Ingredient.of(ModBlocks.BLOODSTONE.get())).group("bloodstone")
+                .group("bloodstone")
+                .unlockedBy("has_bloodstone", has(ModBlocks.BLOODSTONE.get()))
+                .save(output);
+        fenceGateBuilder(ModBlocks.BLOODSTONE_FENCE_GATE.get(), Ingredient.of(ModBlocks.BLOODSTONE.get())).group("bloodstone")
+                .group("bloodstone")
+                .unlockedBy("has_bloodstone", has(ModBlocks.BLOODSTONE.get()))
+                .save(output);
+
+        wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLOODSTONE_WALL.get(), ModBlocks.BLOODSTONE.get());
+
         shaped(RecipeCategory.MISC, ModBlocks.BLOODSTONEBRICK.get(), 4)
                 .pattern("SS")
                 .pattern("SS")
@@ -1093,6 +1109,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_bloodstonebrick", has(ModBlocks.BLOODSTONEBRICK.get()))
                 .save(output);
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLOODSTONEBRICK_SLAB.get(), ModBlocks.BLOODSTONEBRICK.get());
+        wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BLOODSTONEBRICK_WALL.get(), ModBlocks.BLOODSTONEBRICK.get());
 
         shaped(RecipeCategory.MISC, ModBlocks.BLOODSTONESOCKET.get(), 4)
                 .pattern("SS")
@@ -1100,6 +1117,8 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('S', ModBlocks.BLOODSTONEBRICK)
                 .unlockedBy(getHasName(ModBlocks.BLOODSTONEBRICK), has(ModBlocks.BLOODSTONEBRICK))
                 .save(output);
+
+
 
 
         //SANDSTONE BRICK RECIPES

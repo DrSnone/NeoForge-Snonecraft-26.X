@@ -245,6 +245,24 @@
   "block.snonecraft.sandstone_brick_wall": "Sandstone Brick Wall",
 
   "block.snonecraft.blue_tile": "Blue Tile",
+  "block.snonecraft.green_tile": "Green Tile",
+  "block.snonecraft.red_tile": "Red Tile",
+  "block.snonecraft.yellow_tile": "Yellow Tile",
+
+  "block.snonecraft.bloodstone": "Bloodstone",
+  "block.snonecraft.bloodstone_stairs": "Bloodstone Stairs",
+  "block.snonecraft.bloodstone_slab": "Bloodstone Slab",
+  "block.snonecraft.bloodstone_pressure_plate": "Bloodstone Pressure Plate",
+  "block.snonecraft.bloodstone_button": "Bloodstone Button",
+  "block.snonecraft.bloodstone_fence": "Bloodstone Fence",
+  "block.snonecraft.bloodstone_fence_gate": "Bloodstone Fence Gate",
+  "block.snonecraft.bloodstone_wall": "Bloodstone Wall",
+
+  "block.snonecraft.bloodstonebrick": "Bloodstone Brick",
+  "block.snonecraft.bloodstonebrick_stairs": "Bloodstone Brick Stairs",
+  "block.snonecraft.bloodstonebrick_slab": "Bloodstone Brick Slab",
+  "block.snonecraft.bloodstonesocket": "Bloodstone Socket",
+  "block.snonecraft.bloodstonebrick_wall": "Bloodstone Brick Wall",
 
   "block.snonecraft.hemp_block": "Hemp Block",
   "block.snonecraft.hemp_stairs": "Hemp Stairs",

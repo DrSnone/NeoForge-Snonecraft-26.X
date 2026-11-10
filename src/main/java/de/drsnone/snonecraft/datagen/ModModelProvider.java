@@ -309,11 +309,17 @@ public class ModModelProvider extends ModelProvider {
         blockModels.family(ModBlocks.BLOODSTONE.get())
                 .stairs(ModBlocks.BLOODSTONE_STAIRS.get())
                 .slab(ModBlocks.BLOODSTONE_SLAB.get())
-                .pressurePlate(ModBlocks.BLOODSTONE_PRESSURE_PLATE.get());
+                .wall(ModBlocks.BLOODSTONE_WALL.get())
+                .pressurePlate(ModBlocks.BLOODSTONE_PRESSURE_PLATE.get())
+                .button(ModBlocks.BLOODSTONE_BUTTON.get())
+                .fence(ModBlocks.BLOODSTONE_FENCE.get())
+                .fenceGate(ModBlocks.BLOODSTONE_FENCE_GATE.get());
+
 
         blockModels.family(ModBlocks.BLOODSTONEBRICK.get())
                 .stairs(ModBlocks.BLOODSTONEBRICK_STAIRS.get())
-                .slab(ModBlocks.BLOODSTONEBRICK_SLAB.get());
+                .slab(ModBlocks.BLOODSTONEBRICK_SLAB.get())
+                .wall(ModBlocks.BLOODSTONEBRICK_WALL.get());
 
         blockModels.createTrivialCube(ModBlocks.BLOODSTONESOCKET.get());
 
